@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{CS102: Week 2}
+
+\maketitle
+
+\section*{Temperature Conversions}
+The formula to convert Fahrenheit to Kelvin is:	
+\begin{equation}	
+	K = ((F-32)*5)/9 + 273.15
+\end{equation}
+\\
+\begin{enumerate}
+\item Write a program that converts $100^{\circ}$ F to Kelvins. It should print out the following:
+	\begin{quote}
+	100 degrees Fahrenheit is equivalent to \textit{K} degrees Kelvin
+	\end{quote}
+	\textbf{Note:} replace \textit{K} with the converted temperature. 
+\item Modify the program to convert arbitrary Fahrenheit temperatures to Kelvin and change the printout accordingly.
+\end{enumerate}
+\section*{Heat Transfer}
+The time it takes for a spherical object to cool from an initial temperature of $T_{init}$ to a final temperature of $T_{fin}$, caused entirely by radiation, is provided by Kelvin’s cooling equation:
+\begin{equation}
+	t = \frac{Nk}{2e\sigma A}\left[ \frac{1}{T_{fin}^{3}} - \frac{1}{T_{init}^{3}}\right ]
+\end{equation}
+	\begin{description}
+		\item[t] is the cooling time in years
+		\item[N] is the number of atoms
+		\item[k] is Boltzmann’s constant = $1.38 \times 10^{-23} m^{2}kg/s^{2}K$ (note that 1 Joule = $1 m^{2}kg/s^{2}$).
+		\item[e] is emissivity of the object.
+		\item[$\sigma$] is Stephan-Boltzmann’s constant = $5.6703 \times 10^{-8} Watts/m^{2}K^{4}$.
+		\item[A] is the surface area.
+		\item[$T_{fin}$] is the final temperature.
+		\item[$T_{init}$] is the initial temperature.
+	\end{description}
+Assuming an infinitely hot initial temperature, this formula reduces to:
+	\begin{equation}
+		t = \frac{Nk}{2e\sigma A T_{fin}^{3}}
+	\end{equation}
+Using this second formula, write a C++ program to determine the time it took Earth to cool to its current surface temperature of $300^{\circ}$ K from its initial infinitely hot state, assuming the cooling is caused only by radiation. Use the information that the area of the Earth’s surface is $5.15 \times 10^{14}m^{2}$, its emissivity is 1, the number of atoms contained in the Earth is $1.1 \times 10^{50}$, and the radius of the Earth is $6.4 \times 10^{6}$ meters. Additionally, use the relationship that a sphere’s surface area is given by this formula:
+\begin{equation}
+	A = 4 \pi r^{2}
+\end{equation}
+Your program should print out: 
+	\begin{quote}
+		It took \textit{t} years for the earth to cool to 300K.  
+	\end{quote}
+Where \textit{t} is replaced by the computed years.
+
+\section*{Average Temperature}
+A thermometer is placed in various parts of the van and records the following temperatures: 99.9, 98.7, 100.3, 100.2, 99.5 
+The average temperature in the van can be calculated as:
+\begin{equation}
+	van_{t} = \frac{1}{N}\sum_{i=1}^{i=N}t_{i}
+\end{equation}
+\begin{align*}
+	\textbf{i} &= \text{current record}\\
+	\textbf{N} &=  \text{total number of temperature records}
+\end{align*}
+Write a program that computes the average temperature and prints out: (Use an accumulator)
+\begin{quote}
+	The average temperature in the van is \textit{$van_{t}$}
+\end{quote}
+
+\subsection*{Extra Credit}
+The error in the temperature reading can be estimated by calculating the variation in the temperature reading. The variation can be computed using the formula for standard deviation:
+\begin{equation}
+	var_{t} = \sqrt{\frac{1}{N}\sum_{i=1}^{i=N}(t_{i} - van_{t})^{2}}
+\end{equation}
+Write a program that computers the variation and prints out: (Use an accumulator)
+\begin{quote}
+	The average variation in the van records is \textit{$var_{t}$}
+\end{quote}
+\textbf{Note:} Replace $van_{t}$ and $var_{t}$ with the numbers you computed. 
+\end{document}
