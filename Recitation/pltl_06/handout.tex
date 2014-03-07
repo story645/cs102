@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{CS102: Week 6}
+
+\maketitle
+
+\section*{Hello Review}
+Write, compile, and test a program that repeatedly prints out "Hello World" until the user enters 'q'
+\begin{enumerate}
+	\item use a while loop.
+	\item use a do-while loop. What were the differences?
+\end{enumerate}
+ What were the differences?
+
+\section*{Exponents}
+Write, run, and test a C++ function with the following prototype:
+\begin{lstlisting}
+	int pow2(int a, int b);
+\end{lstlisting}
+to find the value of $a^{b}$  by using a for loop, where a and b are integer values that the user enters. Use the following main to verify your solution:
+\begin{lstlisting}{c++}
+#include<iostream>
+#include<cmath>
+
+int pow2(int a, int b);
+
+using namespace std;
+int main(){
+	int a, b;
+	cout<<"Enter a: ";
+	cint>>a;
+	cout<<"Enter b: ";
+	cin>>b;
+	if (pow(1.0*a,b)==pow2(a,b)){
+		cout<<"Correct Implementation"endl;
+	}else{
+		cout<<"Incorrect Implementation"<<endl;
+	}
+return 0;
+}
+\end{lstlisting}
+\pagebreak
+\section*{Swap}
+Write a function that uses the following prototype and swaps the values of the two reference parameters.
+\begin{lstlisting}
+	void swap(int &a, int &b);
+\end{lstlisting}
+Use the following main to test your implementation:
+\begin{lstlisting}{c++}
+#include<iostream>
+using namespace std;
+void swap(int &a, int &b);
+
+int main(){
+	int a, b;
+	cout<<"Enter a: ";
+	cint>>a;
+	cout<<"Enter b: ";
+	cin>>b;
+	int old_a = a;
+	int old_b = b;
+	swap(a, b);
+	if ((old_a==b) && (old_b==a)){
+		cout<<"Correct Implementation"endl;
+	}else{
+		cout<<"Incorrect Implementation"<<endl;
+	}
+return 0;
+}
+\end{lstlisting}
+
+\section*{Sort}
+Write a function that uses the following prototype to sort a, b, c in ascending order:
+\begin{lstlisting}{c++}
+void sort(int &a, int &b, int &c);
+\end{lstlisting}
+Use the following main to test:
+\begin{lstlisting}{c++}
+#include<iostream>
+using namespace std;
+void sort(int &a, int &b, int &c);
+
+int main(){
+	int a, b, c;
+	cout<<"Enter a: ";
+	cint>>a;
+	cout<<"Enter b: ";
+	cin>>b;
+	cout<<"Enter c: ";
+	cin>>c;	
+	sort(a, b, c);          
+	if ((a<b) && (b<c)){
+		cout<<"Correct Implementation"endl;
+	}else{
+		cout<<"Incorrect Implementation"<<endl;
+	}
+return 0;
+}
+\end{lstlisting}
+
+\end{document}
