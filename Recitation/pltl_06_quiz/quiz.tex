@@ -1,0 +1,91 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tabularx}
+\newcounter{matchleft}
+\newcounter{matchright}
+
+\newenvironment{matchtabular}{%
+  \setcounter{matchleft}{0}%
+  \setcounter{matchright}{0}%
+  \tabularx{\textwidth}{%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchleft}\arabic{matchleft}.}}X%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchright}\alph{matchright})}}X%
+    }%
+}{\endtabularx}
+
+\begin{document}
+\header{CS102}{Quiz 6}{}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Answer the questions in the spaces provided on the
+question sheets. If you run out of room for an answer,
+continue on the back of the page.\\
+\textbf{Show all work}. \\
+Credit \textbf{will not} be given if work is not shown.}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\begin{questions}
+\question [5] Given the following code:
+\begin{multicols}{2}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+void f1(int var1, int var2);
+void f2(int &var1, int &var2);
+
+int main(){
+	int a = 1;
+	int b = 2;
+	//1.
+	f1(a, b);
+	//2. 
+	f2(a, b);
+	//3. 
+	f1(a, b);
+	//4. 
+	f2(a, b);
+	//5.
+	return 0;
+}
+
+void f1(int var1,  int var2){
+	var1 = 2;
+	var2 = 3;
+}
+
+void f1(int &var1, int &var2){
+	var1 = 2;
+	var2 = 3;
+}
+
+\end{lstlisting}
+\columnbreak
+Fill in the value of a and b at:
+	\begin{enumerate}
+		\item a = \underline{\hspace{1cm}} b = \underline{\hspace{1cm}}    
+		\item a = \underline{\hspace{1cm}} b = \underline{\hspace{1cm}}
+		\item a = \underline{\hspace{1cm}} b = \underline{\hspace{1cm}}   
+		\item a = \underline{\hspace{1cm}} b = \underline{\hspace{1cm}}   
+		\item a = \underline{\hspace{1cm}} b = \underline{\hspace{1cm}}   
+	\end{enumerate}   
+\end{multicols}
+\question [5]
+Given the following prototype, write a function that \textbf{returns} the hypotenuse. You're allowed to use the cmath library.
+\begin{lstlisting}
+	double hyp(double a, double b);
+\end{lstlisting}
+ \textbf{Extra credit:} Write a program to test your function. 
+\end{questions}
+
+
+
+\end{document}
