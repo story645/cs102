@@ -1,0 +1,277 @@
+
+\documentclass[xcolor={dvipsnames}]{beamer}
+\usepackage{amsmath,amsfonts,amssymb,pxfonts,eulervm,xspace}
+\usepackage{graphicx}
+ \usepackage{multimedia}
+\usepackage{media9}
+\usepackage{minted}
+\usepackage{mathtools}
+
+\usepackage{animate}
+
+\graphicspath{{./figures/}}
+\usetheme{ccnycrest}
+
+
+\begin{document}
+
+\title{ CS102: Arrays}
+\author{Hannah Aizenman}
+\date{haizenm00@ccny.cuny.edu}
+
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+\begin{frame}[fragile]{Array}
+	\begin{block}{Array named "numbers"}
+	\begin{table}
+	\Huge
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	2  & 4 & 6 & 8 & 10\\
+	\hline
+	\end{tabular}
+	\end{table}
+	\end{block}
+	\pause
+	\begin{block}{C++ implementation}
+	\begin{minted}{c++}
+	int numbers[5] = {2, 4, 6, 8, 10};
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Generic form of specifying arrays}
+\begin{center}
+	arrays can contain values of any type
+\end{center}
+\begin{block}{Declaration}
+	\begin{minted}{c++}
+	type name[length];
+	\end{minted}
+\end{block}
+\begin{block}{Assignment}
+	\begin{minted}{c++}
+	type name[length] = {sequence of values};
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Sample Arrays}
+	\begin{center}
+		arrays can contain values of any type
+	\end{center}
+	\begin{minted}{c++}
+		int numbers[5] = {2, 4, 6, 8, 10};
+		double grades[3] = {3.5, 2.3, 1.0};
+		char hello[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
+		bool mask[7] = {1, 1, 0, 0, 1, 1, 0};
+	\end{minted}
+\end{frame}
+
+
+
+\begin{frame}{Array Indexing}
+	\begin{block}{int numbers[5]}
+	\begin{table}
+	\Huge
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	value & 2  & 4 & 6 & 8 & 10\\
+	\hline
+	{\color{red} index} &  {\color{red} 0}   &  {\color{red} 1}  &   {\color{red} 2}  &  {\color{red} 3}  &  {\color{red} 4} \\
+	\hline
+	\end{tabular}
+	\end{table}
+	\end{block}
+	\pause
+	\begin{block}{For element e in array numbers}
+		\begin{description}
+			\item[value] \textbf{what} the element is
+			\item[index] \textbf{where} the element is 
+		\end{description}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Manipulating values using indexing}
+	\begin{block}{General form}
+	\begin{minted}{c++}
+		name[index]
+		name[index] = value;
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{Printing out the value at index 3}
+	\begin{minted}{c++}
+		cout<<numbers[3]<<endl;
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{Assign a value to index 4}
+	\begin{minted}{c++}
+		numbers[4] = 42;
+	\end{minted}
+	\end{block}
+\pause
+	\begin{block}{Input an element to index 2}
+	\begin{minted}{c++}
+		cin>>numbers[2];
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{2D Array}
+	\begin{block}{Array named "numbers"}
+	\begin{table}
+	\Huge
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	2  & 4 & 6 & 8 & 10\\
+	\hline
+	3  & 5 & 7 & 9 & 11\\
+	\hline
+	\end{tabular}
+	\end{table}
+	\end{block}
+	\pause
+	\begin{block}{C++ implementation}
+	\begin{minted}{c++}
+	int numbers[2][5] = {{2, 4, 6, 8, 10},
+	                     {3, 5, 7, 9, 11}};
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}{2D Array Indexing}
+	\begin{block}{int numbers[5]}
+	\begin{table}
+	\Huge
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	 {\color{red} 0} & 2  & 4 & 6 & 8 & 10\\
+	\hline
+	 {\color{red} 1}  & 3  & 5 & 7 & 9 & 11\\
+	\hline
+	{\color{red}index} &  {\color{red} 0}   &  {\color{red} 1}  &   {\color{red} 2}  &  {\color{red} 3}  &  {\color{red} 4} \\
+	\hline
+	\end{tabular}
+	\end{table}
+	\end{block}
+	\pause
+	\begin{block}{For element e in array numbers}
+		\begin{center}
+		row index then column index
+		\end{center}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Manipulating values using indexing}
+	\begin{block}{General form}
+	\begin{minted}{c++}
+		name[row][column]
+		name[row][column] = value;
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{Printing out the value at row index 0 and column index 3}
+	\begin{minted}{c++}
+		cout<<numbers[0][3]<<endl;
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{Assign a value to row index 1 and column index 4}
+	\begin{minted}{c++}
+		numbers[1][4] = 42;
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{Input an element to row index 0 and column index 2}
+	\begin{minted}{c++}
+		cin>>numbers[0][2];
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Generic: Arrays as a function argument}
+	\begin{block}{prototype}
+	\begin{minted}{c++}
+		function_type function_name(array_type array_name[]);
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{implementation}
+	\begin{minted}{c++}
+		function_type function_name(array_type array_name[]){
+			//function body
+		}
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays as a function argument}
+	\begin{block}{prototype}
+	\begin{minted}{c++}
+		int max(int arr[], const int LENGTH);
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{implementaton}
+	\begin{minted}{c++}
+int max(int arr[], const int LENGTH){
+    int maxElement = arr[0];
+    for (int i=0; i<LENGTH; i++){
+        if (arr[i]>maxElement){
+            maxElement=arr[i];
+        }
+    }
+    return maxElement; 
+}
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Generic: 2D Arrays as a function argument}
+	\begin{block}{prototype}
+	\begin{minted}{c++}
+		function_type function_name(array_type array_name[][]);
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{implementation}
+	\begin{minted}{c++}
+		function_type function_name(array_type array_name[][]){
+			//function body
+		}
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays as a function argument}
+	\begin{block}{prototype}
+	\begin{minted}{c++}
+		int max(int arr[][], const int ROWS, const int COLUMNS);
+	\end{minted}
+	\end{block}
+	\pause
+	\begin{block}{implementaton}
+	\begin{minted}{c++}
+int max(int arr[][], const int ROWS, const int COLUMNS){
+    int maxElement = arr[0][0];
+    for(int i=0; i<ROWS; i++){
+        for(int j=0; j<COLUMNS; j++){
+            if (arr[i][j]>maxElement){
+                maxElement=arr[i][j];
+            }
+        }
+    }
+    return maxElement;
+}
+	\end{minted}
+	\end{block}
+\end{frame}
+
+\end{document}
+
