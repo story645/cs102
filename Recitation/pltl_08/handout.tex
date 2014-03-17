@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{CS102: Week 7}
+
+\maketitle
+
+\section*{Display}
+Write a program to display the contents of a file. Your program should:
+\begin{enumerate}
+	\item ask the user for the name of a file and display an error if it doesn't exist.
+	\item display the contents of that file and display an error it it is empty.
+	\item close the file
+\end{enumerate}
+
+\section*{Create}
+Write a program that saves user input to a file. Your program should:
+\begin{enumerate}
+	\item ask the user for the name of a file and create the file if it doesn't exist
+	\item ask the user for a number
+	\item write that number to the file
+	\item repeat steps 2 and 3 until the user enters -1
+	\item close the file
+\end{enumerate}
+
+\section*{Copy}
+Write a program to copy the contents of a source file to a destination file. Your program should:
+\begin{enumerate}
+	\item ask the user for the name of the source file and display and error if it doesn't exist
+	\item ask the user for the name of the destination file and create it if it doesn't exist
+	\item copy the contents from the source file to the destination file
+	\item close both files
+\end{enumerate}
+
+
+\section*{Save}
+Modify the program in \textbf{Create} such that:
+\begin{enumerate}
+	\item read the numbers into an array (stop at -1 or when you've read in 100 numbers)
+	\item ask the user if they'd like to save the numbers
+	\item if the user says yes, ask for a file to save to
+	\item check for the savefile and create it if it doesn't exist
+	\item write the numbers to the file
+	\item close the file
+\end{enumerate}
+
+\section*{Tabulate}
+Write a program to read in a list of numbers, compute their sum, and save the sum out. 
+\begin{enumerate}
+	\item
+	\begin{enumerate}
+		\item ask the user for the name of the source file and display and error if it doesn't exist
+		\item read the numbers from the file into an array (stop at -1 or when you've read in 100 numbers)
+		\item compute the sum of the numbers
+		\item ask the user if they'd like to save the sum
+		\item if the user says yes, ask for a destination file to save to
+		\item check for the savefile and create it if it doesn't exist
+		\item write "The sum of the files is:" and the sum to the savefile
+		\item close both files
+	\end{enumerate}
+	\item modify 1 so that the sum is written to the input file.
+\end{enumerate}
+\end{document}
