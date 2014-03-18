@@ -1,0 +1,6 @@
+This is some sample text
+to explain how line based
+file input works in C++.
+
+See how each line is read
+individually.
