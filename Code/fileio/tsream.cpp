@@ -11,11 +11,11 @@ int main(){
 	ifstream inFile;
 	inFile.open(filename.c_str());
 	if (!inFile){
-		cout<<"Error: Can't open the file named "<<filename<<endl;
+		cout<<"Error: Can't open "<<filename<<endl;
 	}else{
 		while(inFile){
 			inFile>>name>>age;
-			cout<<name<<" is "<<age<<endl;
+			cout<<name<<" is "<<age+10<<endl;
 		}
 	}
 

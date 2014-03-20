@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{CS102: Week 7}
+\title{CS102: Week 8}
 
 \maketitle
 
@@ -14,7 +14,7 @@
 Write a program to display the contents of a file. Your program should:
 \begin{enumerate}
 	\item ask the user for the name of a file and display an error if it doesn't exist.
-	\item display the contents of that file and display an error it it is empty.
+	\item display the contents of that file or display an error if it is empty.
 	\item close the file
 \end{enumerate}
 
@@ -29,40 +29,80 @@ Write a program that saves user input to a file. Your program should:
 \end{enumerate}
 
 \section*{Copy}
-Write a program to copy the contents of a source file to a destination file. Your program should:
+Write a function to copy the contents of a source file to a destination file. Your function should use the following prototype:
+\begin{lstlisting}{c++}
+	void copy(string source, string destination);
+\end{lstlisting}
+\begin{enumerate}
+	\item open the source file for reading and display an error if it doesn't exist
+	\item open the destination file for writing and display an error it it doesn't exist
+	\item copy the contents from the source file to the destination file and display an error if the source is empty
+	\item close both files
+\end{enumerate}
+Write a program to test your function. Your program should:
 \begin{enumerate}
 	\item ask the user for the name of the source file and display and error if it doesn't exist
 	\item ask the user for the name of the destination file and create it if it doesn't exist
-	\item copy the contents from the source file to the destination file
-	\item close both files
+\end{enumerate}
+\pagebreak
+\section*{Save}
+Modify the program in \textbf{Create}. Write function to store numbers in an array:
+\begin{lstlisting}
+	void toArray(int [] arr);
+\end{lstlisting}
+The function should:
+\begin{enumerate}
+	\item Ask the user how many numbers they want to enter
+	\item Fill the array with user input
 \end{enumerate}
 
-
-\section*{Save}
-Modify the program in \textbf{Create} such that:
+ And then write another function to save the numbers to a file. Use the following protoypes:
+\begin{lstlisting}{c++}
+	void save(string savefile, int [] arr);
+\end{lstlisting}
+The function should:
 \begin{enumerate}
-	\item read the numbers into an array (stop at -1 or when you've read in 100 numbers)
-	\item ask the user if they'd like to save the numbers
-	\item if the user says yes, ask for a file to save to
 	\item check for the savefile and create it if it doesn't exist
 	\item write the numbers to the file
 	\item close the file
 \end{enumerate}
+And write a program to test your functions. Your program should:
+\begin{enumerate}
+	\item call the toArray function
+	\item ask the user if they'd like to save the numbers
+	\item if the user says yes, ask for a file to save out to and save the numbers
+\end{enumerate}
 
 \section*{Tabulate}
-Write a program to read in a list of numbers, compute their sum, and save the sum out. 
+Write a program to read in a list of numbers, compute their sum, and save the sum out. First, write a function to read a list of numbers into an array:
+\begin{lstlisting}
+	void file2array(string filename, int input[]);
+\end{lstlisting}
+The function should:
 \begin{enumerate}
-	\item
-	\begin{enumerate}
-		\item ask the user for the name of the source file and display and error if it doesn't exist
-		\item read the numbers from the file into an array (stop at -1 or when you've read in 100 numbers)
-		\item compute the sum of the numbers
-		\item ask the user if they'd like to save the sum
-		\item if the user says yes, ask for a destination file to save to
-		\item check for the savefile and create it if it doesn't exist
-		\item write "The sum of the files is:" and the sum to the savefile
-		\item close both files
-	\end{enumerate}
-	\item modify 1 so that the sum is written to the input file.
+	\item ask the user for the name of the source file and display and error if it doesn't exist
+	\item the first line of the file is the number of lines(values) in the file
+	\item then read the numbers from the file into an array
+	\item close the input file
 \end{enumerate}
+Then write a function to compute and \textbf{return the sum} of the values in the array. Use the following prototype:
+\begin{lstlisting}
+	double sum(int input[]);
+\end{lstlisting}
+And then write a function to save the sum to a file. Use the following prototype:
+\begin{lstlisting}{c++}
+	void save(string savefile, int sum);
+\end{lstlisting}
+The function should:
+\begin{enumerate}
+	\item check for the savefile and create it if it doesn't exist
+	\item write the sum to the file
+	\item close the file
+\end{enumerate}
+And then write the main that uses these functions. 
+
+
+Then modify the program so that the sum is apended to the input file.
+
+
 \end{document}
