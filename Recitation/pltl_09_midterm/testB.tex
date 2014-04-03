@@ -1,0 +1,76 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tabularx}
+\newcounter{matchleft}
+\newcounter{matchright}
+
+\newenvironment{matchtabular}{%
+  \setcounter{matchleft}{0}%
+  \setcounter{matchright}{0}%
+  \tabularx{\textwidth}{%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchleft}\arabic{matchleft}.}}X%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchright}\alph{matchright})}}X%
+    }%
+}{\endtabularx}
+
+\begin{document}
+\header{CS102}{Midterm Version A}{}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Save each program lastname\underline{\hspace{.25cm}}firstname\underline{\hspace{.25cm}}q\#.cpp and save all files to a folder named lastname\underline{\hspace{.25cm}}firstname. You will be submitting this folder as your exam answer. 
+\\
+\textbf{Show all work}. \\
+
+Credit \textbf{will not} be given if work is not shown.}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\begin{questions}
+
+\question [15]
+Using the provided template (question1.cpp), write, run, and test a program that for all numbers between 150 and 250 (inclusive) prints out the number and
+\begin{itemize}
+	\item print \textbf{Shark} for multiples of 4
+	\item print \textbf{Fin} for multiples of 9
+	\item print \textbf{SharkFin} for multiples of 4 and 9
+\end{itemize}
+
+\question[25]
+The following is an approximate conversion formula for converting Celsius temperatures to Fahrenheit temperatures:
+\begin{equation}
+Fahrenheit = (Celsius*20)+30 
+\end{equation}
+The following is the real conversion formula for converting Celsius to Fahrenheit:
+\begin{equation}
+Fahrenheit = \frac{9}{5}Celsius + 32
+\end{equation}
+The approximation diverges from the real  number as temperature increases. Using these formulas, and starting with a Celsius temperature of 0 degrees, write a C++ program that finds the temperature at which the approximate equivalent Fahrenheit temperature differs from the exact equivalent value by more than six degrees.
+
+
+\question[25]
+Implement a function to solve for the roots of a quadratic equation. Your function should print an error message when the roots are imaginary and return the \textbf{negative root}.  Use the provided prototype:
+\begin{lstlisting}
+	double quadratic(int a, int b, int c);
+\end{lstlisting}
+Use the provided template(question3.cpp) to write, run, and test the function.
+\pagebreak
+\question[35]
+A mathematical set is a collection of non repeating elements. Write a function to test whether an array of arbitrary size containing only digits is a set. The function should return true when the array \textbf{is not a} set. You may not use a sort function. Use the following prototype:
+\begin{lstlisting}
+	bool isNotSet(int array[], const int LENGTH);
+\end{lstlisting}
+
+\{1, 2, 3\} returns \textbf{false}\\
+\{1, 2, 3\} returns \textbf{true}\\
+
+Write, run, and test a program to test the the function. The program must also test that the array only contains 0-9.
+
+\end{questions}
+\end{document}
