@@ -40,8 +40,9 @@ for i, (xi, yi) in enumerate(zip(x,y)):
     ax.grid(True)    
     ax.axhline(0, color='k')
     ax.axvline(0, color='k')
-    ax.plot(x[:i+1], y[:i+1], ':', color='k', linewidth=3)
-    ax.plot(np.negative(x[:i+1]), np.negative(y[:i+1]), '--', color='k', linewidth=3)
+    
+    ax.plot(x[:i+1], y[:i+1], '--', color='orange', linewidth=3)  
+    ax.plot(np.negative(x[:i+1]), np.negative(y[:i+1]), ':', color='darkblue', linewidth=3)
     ax.scatter(xi,yi, s=500, color='yellow', edgecolor='k', zorder=100)
     ax.scatter(-xi, -yi, s=500, color='blue', edgecolor='k', zorder=100)
     fig.savefig(os.path.join("animate2", "traj{:03d}.png".format(i)))
