@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\begin{document}
+
+\title{CS102: Week 11}
+
+\maketitle
+\section*{Account Class: Public}
+Using the account class with this declaration: 
+\begin{lstlisting}
+class Account{
+    public:
+        std::string accountNum;
+        double balance;
+}
+\end{lstlisting}
+\begin{description}
+    \item[implement the constructor:]Account(std::string name, double b) 
+    \item[print out the following inside main:] ''Account number: \textit{accountNum} Balance: \textit{balance}''
+\end{description}
+
+\section*{Account Class: Private}
+Using the account class with this declaration:
+\begin{lstlisting}
+class Account{
+    public:
+        Account(std::string name, double b);
+    private:
+        std::string accountNum;
+        double balance;
+};
+\end{lstlisting}
+implement the following methods:
+\begin{description}
+    \item [Account(std::string name, double b)]
+        constructor
+    \item [void display()]
+     prints out ''Account number: \textit{accountNum}
+     Balance: \textit{balance}''
+    \item[changeBalance(double amount)]
+    change the balance by the amount and throw an error if the amount
+    is greater than the balance
+\end{description}
+
+\section*{Operator Overloading}
+Overload the following operators in the account class described above (private):
+\begin{description}
+    \item[+] returns the balance + amount, but don't change the balance
+    \item[+=] permanently adds the amount to the balance
+\end{description}
+
+\section*{History}
+Add the following to the account class described above(private):
+\begin{description}
+    \item[double history[10];] attribute to record the last 10 entries
+    \item[displayHistory()] print out the elements in history
+    \item[updateHistory(double transaction)] method to add new
+    entries. History[0] is the newest transaction.
+\end{description}
+ 
+\section*{Merge}
+Add the following method to the account class described above(private):
+\begin{description}
+    \item[merge(Account B)] merges the balance from B into A
+\end{description}
+
+\section*{Friend Function}
+Implement a friend function to merge two accounts into a new account.
+Use the following declaration and constructors:
+\begin{lstlisting}
+class Account{
+    public:
+        Account();
+        Account(std::string name, double b);
+        double getBalance();
+        friend Account merge(std::string name, Account a1, Account a2);
+    private:
+        std::string accountNum;
+        double balance;
+};
+Account::Account(){
+}
+Account::Account(std::string name, double b){
+    accountNum = name;
+    balance = b;
+}
+\end{lstlisting}
+Test your function using the following statements in main:
+\begin{lstlisting}
+string n1 = ''1234'';
+string n2 = ''3245'';
+Acount test1(n1, 200);
+Account test2(n2, 300);
+Account testMerge = merge(''2334'', test1, test2);
+cout<<testMerge.accountNumber<<'' ''<<testMerge.getBalance()<<endl;
+\end{lstlisting}
+\end{document}
