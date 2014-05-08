@@ -1,0 +1,204 @@
+
+\documentclass[xcolor={dvipsnames}]{beamer}
+\usepackage{amsmath,amsfonts,amssymb,pxfonts,eulervm,xspace}
+\usepackage{graphicx}
+ \usepackage{multimedia}
+\usepackage{media9}
+\usepackage{minted}
+\usepackage{mathtools}
+
+\usepackage{animate}
+
+\usetheme{ccnycrest}
+
+
+\begin{document}
+
+\title{ CS102: Encapsulation and Overloading}
+\author{Hannah Aizenman}
+\date{haizenm00@ccny.cuny.edu}
+
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+\begin{frame}[fragile]{Account Object}
+\begin{block}{Declaration}
+\begin{minted}{c++}
+class Account{
+    public:
+        std::string accountNumber;
+        double balance;
+};
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Constructor}
+\begin{minted}{c++}
+Account::Account(std::string aN, double b){
+    accountNumber = aN;
+    balance = b;
+}
+\end{minted}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Using Account Object}
+\begin{minted}{c++}
+int main(){
+    Account a1("1234", 100);
+    a1.accountNumber = "4567";
+    a1.balance -= 200;
+    return 0;
+}
+\end{minted}
+\pause
+\begin{center}
+\huge
+No checks to changing information!
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Encapsulated Account Object}
+\begin{block}{Declaration}
+\begin{minted}{c++}
+class Account{
+    private:
+        std::string accountNumber;
+        double balance;
+    public: 
+        ....
+        double changeBalance(double value);
+        double getBalance();
+};
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Constructor}
+\begin{minted}{c++}
+Account::Account(std::string aN, double b){
+    accountNumber = aN;
+    balance = b;
+}
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Balance Method}
+\begin{minted}{c++}
+double Account::changeBalance(double value){
+     if ((value<0) && (balance<std::abs(value))){
+         throw value;
+    }
+    balance += value;
+    return balance;
+}     
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Use operators directly}
+\begin{minted}{c++}
+int main(){
+    Account test2(name, account, 200);
+    cout<<"Test overload"<<endl;
+    cout<<"old balance: "<<test2.getBalance()<<endl;
+    test2 -= 100;
+    cout<<"new balance: "<<test2.getBalance()<<endl;
+    return 0;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Operator Overloading}
+\begin{block}{Declaration}
+\begin{minted}{c++}
+class Account{
+    private:
+        std::string accountNumber;
+        double balance;
+    public:
+        double changeBalance(double value);
+        double operator-=(double value);
+};
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Overloaded Operator Method}
+\begin{minted}{c++}
+double Account::operator-=(double value){
+     changeBalance(-1*value);
+     return balance;
+}
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Friend Functions}
+\begin{minted}{c++}
+int main(){
+    string name1 = "1234";
+    string name2 = "4212";
+    Account test1(name1, 100);
+    Account test2(name2, 200);
+    cout<<test1==test2<<endl;
+    return 0;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Friend Function}
+\begin{block}{Declaration}
+\begin{minted}{c++}
+class Account{
+    private:
+        std::string accountNumber;
+        double balance;
+    public:
+        friend bool operator==(Account a1, Account a2);
+};
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Overloaded Operator Friend}
+\begin{minted}{c++}
+bool operator==(Account a1, Account a2){
+	return ((a1.accountNumber==a2.accountNumber) && 
+                       (a1.balance == a2.balance));
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}{Method vs. Friend Function}
+	\begin{description}
+		\item[operands] object on which an operation is performed\\A and B in A+ B
+		\item[relational operators] == , \textless=, \textless, \textgreater, \textgreater=, !=
+		\item[mathematical operators] +, -, /, *
+		\item[accumulators] +=, -=, *=. /=
+		\item[friend] Operands \textbf{are not} modified
+		\item[method] Operands \textbf{are} modified
+			\begin{itemize}
+				\item calling operand is implicit
+				\item second operand is arg to function
+				\item used for accumulators
+			\end{itemize}
+		
+			
+	\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays of Objects}
+\begin{minted}{c++}
+int main(){
+    string name1 = "1234";
+    string name2 = "4212";
+    Account test1(name1, 100);
+    Account test2(name2, 200);
+    Account accountList[2] = {test1, test2};
+    return 0;
+}
+\end{minted}
+\end{frame}
+\end{document}
