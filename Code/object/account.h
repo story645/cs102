@@ -7,11 +7,13 @@ class Account{
 		std::string accountNumber;
 		int history[10];
 		int index = 0;
-		Account(std::string oN, std::string aN, double b=0);
-		void Account::changeBalance(double value);
-		double Account::getBalance();
+		Account(std::string oN, std::string aN, double b);
+		void changeBalance(double value);
+		double getBalance();
+                double operator-(double value);
 		bool operator<(Account account);
-		bool operator==(Account account);
+		friend bool operator==(Account a1, Account A2);
+	
 	private:
 		double balance;
 	};
@@ -22,6 +24,11 @@ Account::Account(std::string oN, std::string aN, double b=0){
 		balance = b;
 		history[index] = balance;
 		index++;
+}
+
+double Account::operator-(double value){
+     changeBalance(-1*value);
+     return balance;
 }
 			
 bool Account::operator<(Account account){
@@ -41,5 +48,8 @@ double Account::getBalance(){
 }
 
 
-	
+bool operator==(Account a1, Account a2){
+	return ((a1.accountNumber == a2.accountNumber)&&
+                 (a1.balance == a2.balance));
+}	
 				
