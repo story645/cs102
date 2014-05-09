@@ -1,0 +1,55 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tabularx}
+\newcounter{matchleft}
+\newcounter{matchright}
+
+\newenvironment{matchtabular}{%
+  \setcounter{matchleft}{0}%
+  \setcounter{matchright}{0}%
+  \tabularx{\textwidth}{%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchleft}\arabic{matchleft}.}}X%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchright}\alph{matchright})}}X%
+    }%
+}{\endtabularx}
+
+\begin{document}
+\header{CS102}{Quiz 13}{}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Answer the questions in the spaces provided on the
+question sheets. If you run out of room for an answer,
+continue on the back of the page.\\
+\textbf{Show all work}. \\
+Credit \textbf{will not} be given if work is not shown.}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\begin{questions}
+\question[10] Given the following account class declaration, write a
+program to print out the account number and balance in the following
+manner:\\
+Account: \textit{accountnum} \textit{balance}\\
+You may modify the class as needed. 
+
+\begin{verbatim}
+class Account{
+    private:
+        double balance;
+    public: 
+        std::string accountNum;
+        Account(std::string an; double b);
+};
+
+\end{verbatim}
+
+\end{questions}
+
+\end{document}
