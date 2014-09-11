@@ -4,6 +4,7 @@
 \usepackage{graphicx}
  \usepackage{multimedia}
 \usepackage{media9}
+\usepackage{tabularx}
 
 \graphicspath{{./figures/}}
 \usetheme{ccnycrest}
@@ -145,11 +146,55 @@
 \end{block}
 \end{frame}
 
+\begin{frame}{Assignment Statement: cin}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{cin}
+\end{figure}
+
+\begin{block}{}
+	\begin{itemize}
+		\item \textbf{\textgreater\textgreater}  is the stream operator
+		\item part of the iostream library (\textbf{\#include \textless iostream\textgreater})
+		\item in std namespace (\textbf{using namespace std;})
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Assignment Statement: multiple cin}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{mcin}
+\end{figure}
+
+\begin{block}{}
+	\begin{itemize}
+		\item can have unlimited vars after \textgreater\textgreater
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Assignment Statement: Expressions}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{expr}
+\end{figure}
+
+\begin{block}{Note: PEMDAS precedence}
+	\begin{tabularx}{\textwidth}{X X X X}
+		\textbf{Operator} & \textbf{What it does} & \textbf{Statement} & \textbf{Stored in x}\\
+
+		+ & addition & x = x + 10; & 10 \\
+		- & subtraction & x = x - 4 & 6 \\
+		*& multiplication & x = x* 3; &  18 \\
+		\textbackslash & division & x = x\textbackslash2; & 9 \\
+		\% & modulo (remainder) &  x = x\%2; & 4 \\  
+	\end{tabularx}
+\end{block}
+\end{frame}
+
 \begin{frame}{Accumulators}
 	\begin{block}{}
 		\begin{itemize}
 		\item used to keep track of subtotals
-		\item operators: +=, -=, *=, /=, %=
+		\item operators: +=, -=, *=, /=, \%=
 		\end{itemize}
 	\end{block}
 	
@@ -163,17 +208,20 @@
 \end{frame}
 
 \begin{frame}{Counters}
+	\center
 \begin{block}{prefix}
-	\begin{tabular}{l l}
+	%\center
+	\begin{tabularx}{\textwidth}{X X}
 		k=++n; & n = n+1; \\
 			   & k = n;\\
-	\end{tabular}
+	\end{tabularx}
 \end{block}
 \begin{block}{postfix}
-	\begin{tabular}{l l}
+	%\center
+	\begin{tabularx}{\textwidth}{X X}
 		k=n++; & k = n; \\
 			   & n = n + 1;\\
-	\end{tabular}
+	\end{tabularx}
 \end{block}
 \end{frame}
 
