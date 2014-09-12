@@ -180,12 +180,11 @@
 \begin{block}{Note: PEMDAS precedence}
 	\begin{tabularx}{\textwidth}{X X X X}
 		\textbf{Operator} & \textbf{What it does} & \textbf{Statement} & \textbf{Stored in x}\\
-
 		+ & addition & x = x + 10; & 10 \\
 		- & subtraction & x = x - 4 & 6 \\
 		*& multiplication & x = x* 3; &  18 \\
-		\textbackslash & division & x = x\textbackslash2; & 9 \\
-		\% & modulo (remainder) &  x = x\%2; & 4 \\  
+		/ & division & x = x/2; & 9 \\
+		\% & modulo (remainder) &  x = x\%2; & 1 \\  
 	\end{tabularx}
 \end{block}
 \end{frame}
@@ -211,16 +210,26 @@
 	\center
 \begin{block}{prefix}
 	%\center
-	\begin{tabularx}{\textwidth}{X X}
+	\begin{tabularx}{\textwidth}{| X | X |}
+		\hline
 		k=++n; & n = n+1; \\
 			   & k = n;\\
-	\end{tabularx}
+		\hline
+		k=$\text{-}\text{-}$n; &  n = n-1;\\
+			&  k = n;\\
+		\hline
+	\end{tabularx}	
 \end{block}
 \begin{block}{postfix}
 	%\center
-	\begin{tabularx}{\textwidth}{X X}
+	\begin{tabularx}{\textwidth}{| X | X |}
+		\hline
 		k=n++; & k = n; \\
 			   & n = n + 1;\\
+		\hline
+		k=n$\text{-}\text{-}$; &  k = n;\\
+					     &  n = n-1;\\
+		\hline
 	\end{tabularx}
 \end{block}
 \end{frame}
