@@ -4,6 +4,7 @@
 \usepackage{graphicx}
  \usepackage{multimedia}
 \usepackage{media9}
+\usepackage{minted}
 
 \graphicspath{{./figures/}}
 \usetheme{ccnycrest}
@@ -24,7 +25,6 @@
 
 \title{ CS102: Boolean Logic and Relation Operators }
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
 
 
 \begin{frame}
@@ -146,15 +146,40 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Comparing Characters}
+\begin{frame}[fragile]{Comparing Characters}
+	\begin{block}{}
+	\begin{minted}{c++}
+		'A'<'B'
+	\end{minted}
+	\end{block}
+	\begin{block}{}
 	\begin{itemize}
 		\item comparison is done between ASCII encodings 
 		\item words are compared on a character basis
 		\item C++ provides functions for comparing characters
 	\end{itemize}
+	\end{block}
 \end{frame}
 
-\begin{frame}{Comparing Doubles and Floats}
+\begin{frame}[fragile]{Comparing strings}
+	\begin{block}{}
+	\begin{minted}{c++}
+		string a = "hello";
+		string b = "goodbye";
+		a.compare(b);
+	\end{minted}
+	\end{block}
+	\begin{block}{}
+	\begin{itemize}
+		\item comparison is done between ASCII encodings 
+		\item words are compared on a character basis
+		\item compare also takes arguments to control which positions to start and end the comparisons at for both strings
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Comparing Doubles and Floats}
 	\begin{block}{Roundoff Errors}
 		\begin{description}
 			\item[FALSE] 1/3.0 == 0.333333333333333
@@ -163,10 +188,11 @@
 	\end{block}
 	\pause
 	\begin{block}{Avoiding Roundoff Errors}
-		\begin{itemize}
-			\item abs(1/3.0 – 0.333333333333333) < epsilon
-			\item epsilon is a constant set to a teeny tiny value
-		\end{itemize}
+		\begin{minted}{c++}
+			float EPSILON = 1E-9;
+			abs(1/3.0 - 0.333333333333333) < EPSILON;
+			//epsilon is a constant set to a teeny tiny value
+		\end{minted}
 	\end{block}
 \end{frame}
 

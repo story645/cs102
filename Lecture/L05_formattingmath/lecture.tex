@@ -114,7 +114,11 @@ int main(){
 \textbf{Function Call}& \textbf{Math} & \textbf{Return Type}\\
 \hline
 \hline
-\texttt{abs(a)} & $\lvert x\rvert$ & same type as a\\
+\texttt{abs(a)} & $\lvert a \rvert$ & same type as a\\
+\texttt{ceil(a)} &$ \lceil a \rceil$ (round up) & \texttt{double}\\
+\texttt{floor(a)}&$ \lfloor a \rfloor$ (round down) & \texttt{double}\\
+\hline
+\hline
 \texttt{pow(a,b)} & $a^b$ & same type as a \\
 \texttt{sqrt(a)} & $\sqrt{a}$ & \texttt{double}\\
 \hline
@@ -167,8 +171,11 @@ cout<<"Area: "<<setiosflags(ios::fixed)
 \texttt{setfill(C)} & set the leading fill character to \texttt{C}\\
   		    	& a space character is the default fill\\
 \hline
-\texttt{setiosflags(flags)}    & set the format flag to true\\
+\hline
+\texttt{setiosflags(flags)}    & set the format flag to \textbf{true}\\
 				& format flags control output\\
+\hline
+\texttt{resetiosflags(flags)} & set the format flag to \textbf{false}\\
 \hline
 \end{tabular}
 \end{frame}
