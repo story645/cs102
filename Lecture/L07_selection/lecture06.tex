@@ -25,7 +25,6 @@
 
 \title{ CS102: Selection Structures}
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
 
 
 \begin{frame}
@@ -161,6 +160,34 @@ int main(){
 \end{minted}
 \end{frame}
 
+
+\begin{frame}{"hello", "goodbye", "nice to meet ya"?}
+	\begin{center}	
+	\begin{figure}
+		\includegraphics[width=.7\textwidth]{idif}
+	\end{figure}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Independent Ifs}
+\begin{minted}{c++}
+//...
+int t;
+cin>>t;
+
+if (t<8){
+    cout<<"Hello World!"<<endl;
+}  
+
+if(t>16){
+    cout<<"Goodbye World!"<<endl;
+}
+
+cout<<"Nice to meet ya!"<<endl;
+
+//...   
+\end{minted}
+\end{frame}
 \begin{frame}{Nesting}
 	\begin{itemize}
 		\item statements can be nested under ifs or else-ifs
@@ -190,7 +217,7 @@ int main(){
 \end{frame}
 
 
-\begin{frame}{Switch Statement}
+\begin{frame}{Switch Statement Without Fall Through}
 \begin{center}	
 	\begin{figure}
 		\includegraphics[width=.6\textwidth]{switch}
@@ -198,7 +225,7 @@ int main(){
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{switch statement}
+\begin{frame}[fragile]{Switch Statement Without Fall Throught}
 \begin{minted}{c++}
 cin>>m;
 switch(m){
@@ -215,7 +242,7 @@ switch(m){
 \end{minted}
 \end{frame}
 
-\begin{frame}{Switch Statement}
+\begin{frame}{Switch Statement With Fall Through}
 \begin{center}	
 	\begin{figure}
 		\includegraphics[width=.6\textwidth]{switchnofall}
@@ -223,7 +250,7 @@ switch(m){
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{switch statement}
+\begin{frame}[fragile]{Switch Statement With Fall Through}
 \begin{minted}{c++}
 cin>>m;
 switch(m){
@@ -245,5 +272,55 @@ switch(m){
 		\item Remove the breaks and compare the output
 	\end{enumerate}
 \end{frame}
+
+\begin{frame}{Exceptions/Exception Handeling}
+\begin{center}	
+	\begin{figure}
+		\includegraphics[width=1\textwidth]{error}
+	\end{figure}
+\end{center}
+\end{frame}
+
+\begin{frame}{Exceptions:throw}
+\begin{center}	
+	\begin{figure}
+		\includegraphics[width=.8\textwidth]{throw}
+	\end{figure}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Exceptions:throw}
+\begin{minted}{c++}
+//...
+if(!found){
+    throw 401;
+}
+//...
+\end{minted}
+\end{frame}
+
+\begin{frame}{Exceptions: try-catch}
+\begin{center}	
+	\begin{figure}
+		\includegraphics[width=.8\textwidth]{trycatch}
+	\end{figure}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{Exceptions: try-catch}
+\begin{minted}{c++}
+//..
+try{
+    if(!found){
+        throw 401;
+    }
+}catch(int){
+    cout<<"Username or Password Not Found"<<endl;
+}
+//...
+\end{minted}
+\end{frame}
+
 \end{document}
 

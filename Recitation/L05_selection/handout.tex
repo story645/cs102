@@ -1,8 +1,8 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
-\usepackage{listings}
 \usepackage{amsmath}
+\usepackage{minted}
 
 \begin{document}
 
@@ -36,13 +36,52 @@ Write, run, and test a C++ program that accepts a user-input integer number and
 \end{enumerate}
 
 
+\section*{Minimum of Three Numbers}
+Find the minimum of three numbers. Your program has the following constraints:
+\begin{enumerate}
+	\item inputs are unsorted
+	\item only allowed to use pairwise comparisons
+		\begin{description}
+			\item [no] 
+\begin{minted}{c++}
+(a>b) && (b>c)
+\end{minted}
+\item[yes] 
+\begin{minted}{c++} 
+if (a>b) { 
+     if (b>c){...}
+...}
+\end{minted}
+\end{description} 
+\end{enumerate}
+
+
 \section*{Supplement: Boolean Algebra Evaluator}
 Write, run, and test a C++ program that evaluates a 2 value boolean algebra equation, such as A and B.  The program accepts the truth values of A and B and the operation and returns the truth value of the expression. 
 \begin{verbatim}
 	What is the truth value (0,1) of A? 0
 	What is the truth value (0,1) of B? 1
 	What is the operation (a, o)? a
-	The truth value of 0 a 1 is 0.
+	The truth value of 0 a 1 is 0
 \end{verbatim}
+
+\section*{Median of Three Numbers}
+Find the median of three numbers. Your program has the following constraints:
+\begin{enumerate}
+	\item inputs are unsorted
+	\item only allowed to use pairwise comparisons
+		\begin{description}
+			\item [no] 
+\begin{minted}{c++}
+(a>b) && (b>c)
+\end{minted}
+\item[yes] 
+\begin{minted}{c++} 
+if (a>b) { 
+     if (b>c){...}
+...}
+\end{minted}
+\end{description} 
+\end{enumerate}
 
 \end{document}
