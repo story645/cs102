@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{minted}
+
+\begin{document}
+
+\title{CS102: Iteration}
+
+\maketitle
+\section*{Instructions:}
+Do problems in order of difficulty, which is indicated by their section placement. Suggested order: 1.1, 2.1, 1.2, 2.2, 1.3....
+\section{For loops}
+\subsection{Fizz Buzz 2}
+Write, run, and test a C++ program that for all numbers between and 0 and 100 (inclusive) prints out the number and
+\begin{itemize}
+	\item print \textbf{Fizz} for multiples of 3
+	\item print \textbf{Buzz} for multiples of 5
+	\item print \textbf{FizzBuzz} for multiples of 3 and 5
+\end{itemize}
+
+\subsection{y=f(x,z)}
+Write a program that calculates and displays values for y when \textbf{y = xz / (x - z)}:
+
+\begin{enumerate}
+ 	\item x ranging between 1 and 5
+	\item z ranging between 2 and 6
+\end{enumerate}
+
+\subsection{Exponents: $a^{b}$}
+\begin{enumerate}
+	\item Write, run, and test a C++ program to find the value of $2^{n}$ by using a for loop, where n is an integer value the user
+enters.
+	\item Write, run, and test a C++ program to find the value of $a^{b}$  by using a for loop, where a and b are integer values that the user enters. Use the pow function from the math library to verfiy your solution.
+\end{enumerate}
+
+\subsection{Approximating Euler's constant}
+Euler's constant E can be approximated as a series of terms using the Taylor series:\\
+
+\begin{enumerate}
+
+\item Write, run, and test a C++ program to compute the approximation of e using N terms:\\
+$e = \displaystyle \sum^{\infty  }_{n=0}\frac{1}{n!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} .....$ for all x
+\item Write, run, and test a C++ program to compute the approximation of $e^{x}$ using N terms:\\
+$e^{x}=\displaystyle \sum^{\infty}_{n=0}\frac{x^{n}}{n!} = 1 + \frac{x}{1!} + \frac{x^{2}}{2!} + \frac{x^{n}}{3!}.....$ for all x
+\end{enumerate}
+
+\section{While and Do-While Loops}
+
+\subsection{Hello}
+Write, compile, and test a program that repeatedly prints out "Hello World" until the user enters 'q'
+\begin{enumerate}
+	\item use a while loop.
+	\item use a do-while loop. What were the differences?
+\end{enumerate}
+ What were the differences?
+
+\subsection{Gifts}
+A child’s parents promised to give the child $10 on her 12th birthday and double the gift on every subsequent birthday until the annual gift exceeded $1000. Write a C++ program to determine how old the child will be when the last amount is given and the total amount the child will have received.A child’s parents promised to give the child $10 on her 12th birthday and double the gift on every subsequent birthday until the annual gift exceeded $1000. Write a C++ program to determine how old the child will be when the last amount is given and the total amount the child will have received.
+
+
+\subsection{Min-Max}
+Write a program with a loop that lets the user enter a series of integers. The user should
+enter −99 to signal the end of the series. After all the numbers have been entered, the
+program should display the largest and smallest numbers entered.
+
+\subsection{Random Number Guessing Game}
+Write a program that generates a random number between 0 and 100 and asks the user to guess what the number is. 
+\begin{enumerate}
+\item If the user's guess is higher than the random number, display \texttt{\textbf{Too high, try again.}}. 
+\item If the user's guess is lower than the random number, display \texttt{\textbf{Too low, try again.}} 
+\end{enumerate}
+The program should use a loop that repeats until the user correctly guesses the random number. \\
+\textbf{Enhancement: }Modify the program so that it keeps a count of the number of guesses that the user makes. When the user correctly guesses the random number, the program should display the number of guesses.\\
+Use the following code as a template:
+
+\begin{minted}{c++}
+#include <iostream>
+#include <cstdlib> //srand, rand, NULL
+#include <ctime> //time
+
+using namespace std;
+int main(){
+	const int MAXNUM = 100;
+
+	/* initialize random seed: */
+	srand (time(NULL));
+
+	/* generate random number between 0 and MAXNUM */
+	int rnumber = rand() % MAXNUM;
+
+	//implement the guessing game here
+	return 0;
+}
+\end{minted}
+
+
+
+
+
+\end{document}
