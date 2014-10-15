@@ -17,7 +17,7 @@
 
 \title{ CS102: Functions }
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
+\date
 
 
 \begin{frame}
@@ -43,15 +43,15 @@
 	\includegraphics[width=1\textwidth]{fsq_function}
 \end{frame}
 
-\begin{frame}[fragile]{Implementing f(x)}
+\begin{frame}[fragile]{Implementing square(x)}
 	\begin{center}
 	 
 	\begin{minted}{c++}
 	//prototype
-	int f(int x);
+	int square(int x);
 
 	//implementation
-	int f(int x){
+	int square(int x){
 	   int y = x*x;
 	   return y;
 	}   
@@ -61,41 +61,35 @@
 		\begin{itemize}
 			\item function and return \textbf{must} have same type
 			\item parameters can be of various types
+			\item use descriptive names, like square instead of f
 		\end{itemize}
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Using f(x)}
-	\begin{columns}
-	 \begin{column}{.49\textwidth}
+\begin{frame}{ Pass-by-Value}
+	\includegraphics[width=1\textwidth]{fsq_pbv}
+\end{frame}
+
+\begin{frame}[fragile]{Using square(x)}
 	\begin{minted}{c++}
-	#include <iostream>
-	using namespace std;
-		
-	//function prototype
-	int f(int x);
+#include <iostream>
+using namespace std;
 
-	int main(){
-	   int x;
-	   cin>>x;
-	   int z = f(x);
-	   cout<<"f(2)="<<z<<endl;
-	   return 0;
-	}
-	\end{minted}
-	\end{column}
-	\pause
+int square(int x); //function prototype
 
-	\begin{column}{.49\textwidth}
-		\begin{minted}{c++}
-		//function for computing x^2
-		int f(int x){
-		    int y = x*x;
-		    return y;
-		}   
+int main(){
+    int a;
+    cin>>a;
+    int b = square(a);
+    cout<<"square("<<a<<")="<<b<<endl;
+    return 0;
+}
+//computes x^2
+int square(int x){
+    int y = x*x;
+    return y;
+}   
 	\end{minted}
-	\end{column}
-	\end{columns}
 \end{frame}
 
 \begin{frame}{practice}
@@ -106,14 +100,69 @@ data passed to the function.
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Pass by reference: square(x)}
+	\begin{center} 
+	\begin{minted}{c++}
+	//prototype
+	void square(int x, int &y);
+
+	//implementation
+	void square(int x, int &y){
+	   y = x*x;
+	}   
+	\end{minted}
+	\end{center}
+	\begin{center}
+		\begin{itemize}
+			\item reference parameters are pointers
+			\item a function of type void doesn't return anything
+			\item a function can have pass by value and pass by reference parameters
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Pass-by-Reference}
+\includegraphics[width=1\textwidth]{fsq_pbr}
+\end{frame}
+
+\begin{frame}[fragile]{Using square(x)}
+
+\begin{minted}{c++}
+#include <iostream>
+using namespace std;
+
+void square(int x, int &y); //function prototype
+
+int main(){
+    int a, b;
+    cin>>a;
+    square(a, b);
+    cout<<"square("<<a<<")="<<b<<endl;
+    return 0;
+}
+//function for computing x^2
+void square(int x, int &y){
+    y = x*x;
+}   
+\end{minted}
+
+\end{frame}
+
+\begin{frame}{practice}
+	\begin{itemize}
+		\item implement the function addn that adds some value n to an input parameter x. The user can set n, but it defaults to 0.
+		\item write a function to sort 3 values and return the sorted values
+	\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Default Args}
 	\begin{center}
 	\begin{minted}{c++}
 	//prototype
-	int f(int x=0);
+	int square(int x=0);
 
 	//implementation
-	int f(int x=0){
+	int square(int x=0){
 	   int y = x*x;
 	   return y;
 	}   
@@ -128,33 +177,25 @@ data passed to the function.
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Default Args: using f(x)}
-	\begin{columns}
-	 \begin{column}{.49\textwidth}
-	\begin{minted}{c++}
-	#include <iostream>
-	using namespace std;
-		
-	//function prototype
-	int f(int x=0);
+\begin{frame}[fragile]{Default Args: using square(x)}
 
-	int main(){
-	   cout<<"f(0)="<<f()<<endl;
-	   return 0;
-	}
-	\end{minted}
-	\end{column}
-	\pause
-	\begin{column}{.49\textwidth}
-		\begin{minted}{c++}
-		//function for computing x^2
-		int f(int x=0){
-		    int y = x*x;
-		    return y;
-		}   
-	\end{minted}
-	\end{column}
-	\end{columns}
+\begin{minted}{c++}
+#include <iostream>
+using namespace std;
+
+int square(int x=0);
+
+int main(){
+   cout<<"square(0)="<<square()<<endl;
+   return 0;
+}
+
+int square(int x=0){
+    int y = x*x;
+    return y;
+}   
+\end{minted}
+
 \end{frame}
 
 \begin{frame}{practice}
@@ -170,16 +211,16 @@ data passed to the function.
 	\begin{column}{.49\textwidth}
 	\begin{minted}{c++}
 	//prototypes
-	int f(int x);
-	double f(double x);
+	int square(int x);
+	double square(double x);
 	
 	//implementation
-	int f(int x){
+	int square(int x){
 	   int y = x*x;
 	   return y;
 	}
    
-	double f(double x){
+	double square(double x){
 	   double y = x*x;
 	   return y;
 	}   
@@ -195,42 +236,20 @@ data passed to the function.
 \end{frame}
 
 
-\begin{frame}[fragile]{Overloading: using f(x)}
-	\begin{columns}
-	 \begin{column}{.49\textwidth}
+\begin{frame}[fragile]{Overloading: using square(x)}
 	\begin{minted}{c++}
-	#include <iostream>
-	using namespace std;
-		
-	//function prototype
-	int f(int x);
-	double f(double x);
+	int square(int x);
+	double square(double x);
 
 	int main(){
-	   int z = f(2);
-	   cout<<"f(2)="<<z<<endl;
-	   double x = f(2.5);
-	   cout<<"f(2)="<<x<<endl;
+	   int w = square(2);
+	   cout<<"square(2)="<<w<<endl;
+	   double v = square(2.5);
+	   cout<<"square(2.5)="<<v<<endl;
 	   return 0;
 	}
-	\end{minted}
-	\end{column}
-	\pause
-	\begin{column}{.49\textwidth}
-	\begin{minted}{c++}
-	int f(int x){
-	   int y = x*x;
-	   return y;
-	}
-   
-	double f(double x){
-	   double y = x*x;
-	   return y;
-	}
-	
-	\end{minted}
-	\end{column}
-	\end{columns}
+//implementations
+\end{minted}
 \end{frame}
 
 \begin{frame}{practice}
@@ -240,63 +259,65 @@ data passed to the function.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Pass by reference: f(x)}
-	\begin{center}
-	 
+\begin{frame}[fragile]{Templates}
+	\begin{center} 
 	\begin{minted}{c++}
-	//prototype
-	int f(int x, int &y);
-
-	//implementation
-	int f(int x, int &y){
-	   y = x*x;
-	}   
+template <class T>
+T square(T x){
+    T y;
+    y = x*x;
+    return y;
+}   
 	\end{minted}
 	\end{center}
 	\begin{center}
 		\begin{itemize}
-			\item function and return \textbf{must} have same type
-			\item parameters can be of various types
+			\item the function implementation \textbf{is} the prototype
+			\item custom function created on function call
+			\item T is a stand in for any built in data type
+			\item Can be pass-by-value and/or pass-by-reference	
 		\end{itemize}
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Using f(x)}
-	\begin{columns}
-	 \begin{column}{.49\textwidth}
+\begin{frame}[fragile]{Templates: Multiple types}
+	\begin{center} 
 	\begin{minted}{c++}
-	#include <iostream>
-	using namespace std;
-		
-	//function prototype
-	int f(int x, int &y);
-
-	int main(){
-	   int x, y;
-	   cin>>x;
-	   f(x, y);
-	   cout<<"f(2)="<<y<<endl;
-	   return 0;
-	}
+template <class T1, class T2>
+void square(T1 x, T2 &y){
+    y = x*x;
+}   
 	\end{minted}
-	\end{column}
-	\pause
-	\begin{column}{.49\textwidth}
-		\begin{minted}{c++}
-		//function for computing x^2
-		int f(int x, int &y){
-		   y = x*x;
-		}   
-		\end{minted}
-	\end{column}
-	\end{columns}
+	\end{center}
+	\begin{center}
+		\begin{itemize}
+			\item T1 and T2 are different types
+			\item function doesn't have to return a templated type
+			\item function can return template type
+			\item Can be pass-by-value and/or pass-by-reference
+			\item T1, T2...are a convention, can be anything
+		\end{itemize}
+	\end{center}
 \end{frame}
 
-\begin{frame}{practice}
-	\begin{itemize}
-		\item implement the function addn that adds some value n to an input parameter x. The user can set n, but it defaults to 0.
-		\item write a function to sort 3 values and return the sorted values
-	\end{itemize}
+\begin{frame}[fragile]{Using Templates}
+\begin{minted}{c++}
+#include <iostream>
+using namespace std;
+
+template <class T>
+T square(T x){
+    y = x*x;
+}
+
+int main(){
+   int w = square(2);
+   cout<<"square(2)="<<w<<endl;
+   double v = square(2.5);
+   cout<<"square(2.5)="<<v<<endl;
+   return 0;
+}
+\end{minted}
 \end{frame}
 
 
@@ -304,7 +325,7 @@ data passed to the function.
 	\begin{itemize}
 		\item local scope
 		\begin{itemize}
-			\item only seen by function it's definied in
+			\item only seen by function it's defined in
 			\item name can be reused in other functions
 		\end{itemize}
 		\item global scope
