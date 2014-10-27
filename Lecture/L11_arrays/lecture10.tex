@@ -1,13 +1,12 @@
-
 \documentclass[xcolor={dvipsnames}]{beamer}
 \usepackage{amsmath,amsfonts,amssymb,pxfonts,eulervm,xspace}
 \usepackage{graphicx}
- \usepackage{multimedia}
+\usepackage{multimedia}
 \usepackage{media9}
 \usepackage{minted}
 \usepackage{mathtools}
-
 \usepackage{animate}
+\usepackage{tabularx}
 
 \graphicspath{{./figures/}}
 \usetheme{ccnycrest}
@@ -15,9 +14,8 @@
 
 \begin{document}
 
-\title{ CS102: Arrays}
+\title{ CS102: Arrays and Vectors}
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
 
 
 \begin{frame}
@@ -146,16 +144,17 @@
 \end{frame}
 
 \begin{frame}{2D Array Indexing}
-	\begin{block}{int numbers[5]}
+	\begin{block}{int numbers[2][5]}
 	\begin{table}
 	\Huge
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline
+	{\color{red}index} &  {\color{red} 0}   &  {\color{red} 1}  &   {\color{red} 2}  &    {\color{red} 3}  &  {\color{red} 4} \\
+
+	\hline
 	 {\color{red} 0} & 2  & 4 & 6 & 8 & 10\\
 	\hline
 	 {\color{red} 1}  & 3  & 5 & 7 & 9 & 11\\
-	\hline
-	{\color{red}index} &  {\color{red} 0}   &  {\color{red} 1}  &   {\color{red} 2}  &  {\color{red} 3}  &  {\color{red} 4} \\
 	\hline
 	\end{tabular}
 	\end{table}
@@ -193,6 +192,63 @@
 		cin>>numbers[0][2];
 	\end{minted}
 	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Pointer Based Indexing}
+\begin{block}{int arr[5] = {2,4,6,8,10};}
+	\begin{table}
+	\Huge
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	value & 2  & 4 & 6 & 8 & 10\\
+	\hline
+	\end{tabular}
+\end{table}
+\end{block}
+\begin{block}{Access a value}
+	\begin{table}
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	arr[index]  & arr[0]  & arr[1] & arr[2] & arr[3] & arr[4]\\
+	\hline
+        *(arr+index) & *arr & *(arr+1) & *(arr+2) & *(arr+3) & *(arr+4)\\
+	\hline
+	\end{tabular}
+\end{table}
+\begin{description}
+	\item[array access: arr[i]] the ith value 
+	\item[pointer dereference: *(arr+i)] the value i spaces over from arr
+\end{description}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Pointer Based Arithmetic}
+\begin{block}{}
+	\begin{minted}{c++}
+int arr[5] = {2,4,6,8,10};
+int *ptNum = &arr[2];
+//ptNum points to the address of the 2nd element in arr
+//this element has the value 6
+	\end{minted}
+\end{block}
+
+\begin{tabular}{|l|l|l|}
+\hline
+ptNum++ & use the pointer & ptNum points to 6\\
+                   & then increment it  & then moves to 8 \\
+\hline
+++ptNum & increment the pointer & ptNum moves to 10\\
+		   & then use it & then points to 10\\
+\hline
+ptNum\text{-}\text{-} & use the pointer & ptNum points to 10\\
+				 & then decrement it & then moves to 8\\
+\hline
+\text{-}\text{-}ptNum & decrement the pointer & ptNum moves to 6\\
+		& then use it & then points to 6\\
+\hline
+\end{tabular}
+\center
+\alert{incrementing and decrementing pointers shifts \textbf{Addresses}}
 \end{frame}
 
 \begin{frame}[fragile]{Generic: Arrays as a function argument}
@@ -273,5 +329,139 @@ int max(int arr[][], const int ROWS, const int COLUMNS){
 	\end{block}
 \end{frame}
 
+\begin{frame}{Vectors}
+
+\begin{block}{Similar to an array}
+	\begin{itemize}
+		\item holds a sequence of elements
+		\item stores elements in adjoining memory locations
+		\item supports the array subscript operator \textbf{\[\]}
+	\end{itemize}
+\end{block}
+
+\begin{block}{Advantages over an array}
+	\begin{itemize}
+		\item do not need to know how many elements it will contain
+		\item automatically increases in size to accommodate new values
+		\item has functions for reporting number of elements
+		\item can easily set a default value
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Using Vectors}
+\begin{minted}{c++}
+#include <iostream>
+#include <vector> //include vector lib
+
+using namespace std;
+
+int main()
+{
+   //create a vector containing 10 elements
+   vector <int> numbers(10);
+   //set 1st element to 1
+   numbers[0] = 1;
+   cout<<numbers[0]<<endl;
+   //set 2nd element
+   numbers[1] = 2;
+   cout<<numbers[1]<<endl;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Using Vectors: Default Value}
+\begin{minted}{c++}
+#include <iostream>
+#include <vector> //include vector lib
+
+using namespace std;
+
+int main()
+{
+   //create an array of size 10 
+   //with all values set to 2
+   vector <int> numbers(10,2);
+   cout<<numbers[1]<<endl;
+   //change the value at index i
+   numbers[1] = 4;
+   cout<<numbers[1]<<endl;
+}
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]{Using Vectors: Unknown Size}
+\begin{minted}{c++}
+#include <iostream>
+#include <vector> //include vector lib
+
+using namespace std;
+
+int main()
+{
+   vector <int> numbers;
+   //use push_back to add 1st value
+   numbers.push_back(1);
+   cout<<numbers[0]<<endl;
+   //use push_back to add 2nd value
+   numbers.push_back(2);
+   cout<<numbers[1]<<endl;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Creating (defining) a Vector}
+\begin{block}{Empty Vector: \texttt{vector <dtype> name;}}
+\begin{minted}{c++}
+vector <string> students;
+\end{minted}
+\end{block}
+
+\begin{block}{Empty, Initial Length: \texttt{vector <dtype> name(len);}}
+\begin{minted}{c++}
+vector <string> students(30);
+\end{minted}
+\end{block}
+
+\begin{block}{Length, Defaults: \texttt{vector <dtype> name(len,val);}}
+\begin{minted}{c++}
+vector <string> students(30, "Anonamouse");
+\end{minted}
+\end{block}
+
+\begin{block}{Copy Vector: \texttt{vector <dtype> name1(name);}}
+\begin{minted}{c++}
+vector <string> new_students(students);
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}{Common Vector Operations}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\texttt{name[i]} & value at location i, doesn't check if i is valid\\
+\hline
+\texttt{name.at(i)} & value at location i, checks if i is a valid index\\
+\hline
+\texttt{name.push\_back(value)} & adds value to end of vector\\
+\hline
+\hline
+\texttt{name.size()} & number of elements in the vector\\
+\hline
+\texttt{name.empty()} & boolean-returns true of the vector is empty\\
+\hline
+\texttt{name.capacity()} & maximum number of elements\\
+\hline
+\hline
+\texttt{name.clear()} & clears a vector of all its elements\\
+\hline
+\texttt{name.pop\_back()} & removes the last element in the vector\\
+\hline
+\hline
+\texttt{name.reverse()} & reverses all the elements in the vector\\
+\hline
+\texttt{name.swap(name2)} & swaps the elements in name with the elements in name2\\
+\hline
+\end{tabularx}
+\end{frame}
 \end{document}
 

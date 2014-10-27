@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{minted}
+
+\begin{document}
+
+\title{CS102: Week 7}
+
+\maketitle
+\section*{Instructions:}
+Do problems in order of difficulty, which is indicated by their section placement. Suggested order: 1.1, 2.1, 1.2, 2.2, 1.3, 2.3, and then section 3
+
+\section{Arrays}
+\subsection{Manipulation}
+Given the following code:
+\begin{minted}{c++}
+const int LEN = 8;
+int arr[LEN] = {0,1,1,2,3,5,8,13};
+\end{minted}
+Write a program to:
+\begin{enumerate}
+	\item print out all the elements in arr
+	\item add 2 to every element e in arr
+	\item replace every element e in arr with e+2
+	\item print out all the elements in arr to verify replacement
+\end{enumerate}
+
+\subsection{User Input}
+Write a program that:
+\begin{enumerate}
+	\item asks users how many elements N they want in an array
+	\item asks the user to enter N values and places those values into the array
+	\item prints out the elements of the array
+\end{enumerate}
+
+\subsection{Indexing}
+Write a program that
+\begin{enumerate}
+	\item prints out the elements of an array backwards
+	\item prints out every other element of the array
+\end{enumerate}
+
+\section{Vectors}
+\subsection{Manipulation}
+Given the following code:
+\begin{minted}{c++}
+const int LEN = 8;
+const int DEFAULT = 0;
+vector <int> vect(LEN,DEFAULT);
+\end{minted}
+Write a program to:
+\begin{enumerate}
+	\item print out all the elements in arr
+	\item add the index i to every element e in arr
+	\item replace every element e in arr with e+i
+	\item print out all the elements in arr to verify replacement
+\end{enumerate}
+
+\subsection{User Input}
+Write a program that:
+\begin{enumerate}
+	\item asks the user to enter in a  value
+	\item inserts that value into a vector
+	\item keeps asking for values until the user enters -1 
+	\item stops asking when the user enters -1 
+	\item prints out the elements of the vector
+\end{enumerate}
+
+\subsection{Indexing}
+Write a program that
+\begin{enumerate}
+	\item prints out the elements of a vector backwards
+	\item prints out every other element of the vector
+\end{enumerate}
+
+\pagebreak
+\section{Functions}
+\subsection{Counting}
+Write the following functions and a main program to test them:
+\begin{enumerate}
+	\item write a function that returns the number of elements in the array divisible by 2
+	\item write a function that returns the number of elements in the array divisible by n
+	\item write a function that returns the number of elements in the vector divisible by n
+\end{enumerate}
+Use the following prototypes:
+\begin{minted}{c++}
+int count2(int arr[], const int LENGTH);
+int countn(int arr[], const int LENGTH, int n);
+int countn(vector <int> vect, int n);
+\end{minted}
+
+\subsection{Statistics}
+Write the following functions and a main program to test them:
+\begin{enumerate}
+	\item create an array containing the following values: \texttt{{0,1,1,2,3,5,6,13}}
+	\item write a function that computes and returns the sum of the elements in the array. 
+	\item write a function that computes and returns the mean of the elements in the
+	\item change 2 and 3 so that they also work for arrays containing doubles and floats
+	\item ask the user for the array length and values in the array (can be ints or doubles)
+	\item check that 4 works
+	\item repeat steps 2, 3, and 4 for vectors (start with int vectors)
+\end{enumerate}
+
+\subsection{Sorting}
+Write a function to sort the elements of an array and a main program to test your implementation. Repeat with vectors. Start with preset values and work up to user defined values. Test against the sort function built into the standard template library.
+
+\begin{minted}{c++}
+//this is the library containing sort
+#include <algorithm>
+/**The first argument to sort is a pointer to the begging of the array/vector
+    The second argument is a pointer to the end of the array/vector
+**/ 
+sort(arr, arr+LENGTH);
+sort(vect.begin(), vect.end());
+\end{minted}
+
+\end{document}
