@@ -24,11 +24,11 @@ int main(){
 		cout<<"error opening"<<endl;
 		return -1;
 	}
-	int height = 250;
-	int width = 250;
+	int height = 500;
+	int width = 500;
 	int maxval = 1;
 	writeHeader(streamwriter, "P2", height, width, maxval);
-	drawCircle(streamwriter, 50, height, width, maxval);
+	drawCircle(streamwriter, 100, height, width, maxval);
 	streamwriter.close();
 	
 	return 0;

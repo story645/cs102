@@ -8,7 +8,7 @@ int main(){
 	string filename = "inputword.txt";
 	string word;
 	ifstream inFile;
-	inFile.open(filename.c_str());
+   inFile.open(filename.c_str());
 	if (!inFile){
 		cout<<"Error: Can't open the file named "<<filename<<endl;
 	}else{

@@ -7,7 +7,7 @@ using namespace std;
 int main(){
 	string filename = "outfile.txt";
 	ofstream outFile;
-	outFile.open(filename.c_str());
+   outFile.open(filename.c_str(),ios::out);
 	outFile<<"This is text";
 	outFile.close();
 	return 0;
