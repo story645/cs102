@@ -107,12 +107,10 @@ class Shape{
 \begin{frame}[fragile]{Generic Perimeter}
 \begin{minted}{c++}
 double Shape::perimeter(){
-    double perim=0;
+    double perim=distance(verts[NSIDES-1],verts[0]);
     for (int i=0; i<NSIDES-1; i++){
         perim+=distance(verts[i], verts[i+1]);
     }
-        
-    perim+=distance(verts[NSIDES-1],verts[0]);
     return perim;
 }
 \end{minted}

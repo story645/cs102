@@ -9,6 +9,7 @@ class Account{
 		Account(std::string an, double b);
 		double changeBalance(double value);
 		double getBalance();
+        double operator<<(std::string accountNum);
 		double operator-(double value);
 		double operator-=(double value);
 		friend bool operator==(Account a1, Account a2);
@@ -43,6 +44,11 @@ double Account::operator-=(double value){
 double Account::operator-(double value){
 	testValue(value);
 	return balance-value;
+}
+
+double Account::operator<<(std::string anum)
+{
+   
 }
 
 bool operator==(Account a1, Account a2){
