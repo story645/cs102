@@ -17,7 +17,6 @@
 
 \title{ CS102: Introduction to Classes}
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
 
 
 \begin{frame}
@@ -26,6 +25,47 @@
 
 \begin{frame}{P1}
 	\includegraphics[width=1\textwidth]{traj000}
+\end{frame}
+
+\begin{frame}[fragile]{Point Structs}
+\begin{block}{Create Struct Object Type}
+\begin{minted}{c++}
+struct Point{
+    int x;
+    int y;
+    std::string color;
+};
+\end{minted}
+\end{block}
+
+\begin{block}{Use Struct Object Type}
+\begin{minted}{c++}
+Point p = {1, 2, "yellow"};
+cout<<p.x<<" "<<p.y<<endl;
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Structs: Functions}
+\begin{block}{Struct as Argument}
+\begin{minted}{c++}
+void display(Point p){ cout<<p.x<<" "<<p.y<<endl; }
+\end{minted}
+\end{block}
+\begin{block}{Pointer to Struct as Argument}
+\begin{minted}{c++}
+double distance(Point *p1, Point *p2){
+    return sqrt((pow(p1->x,2.0)-pow(p2->x, 2.0))+
+                (pow(p1->y,2.0) - pow(p2->y, 2.0)));
+}
+\end{minted}
+\begin{block}{Calling Function with struct}
+\begin{minted}{c++}
+display(p);
+distance(&p, &p2);
+\end{minted}
+\end{block}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Point Object}

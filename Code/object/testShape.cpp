@@ -10,7 +10,7 @@ int main(){
    Point P3(2,2);
    
    Triangle t1(P1, P2, P3);
-   cout<<t1.perimeter()<<endl;
+   cout<<"Perimenter: "<<t1.perimeter()<<endl;
    t1.printVerts();
    cout<<::distance(P1, P2)<<" ";
    cout<<::distance(P2, P3)<<" ";

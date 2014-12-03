@@ -18,7 +18,6 @@
 
 \title{ CS102: Inheritence}
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
 
 
 \begin{frame}
@@ -38,7 +37,7 @@ class Triangle{
         static const int NSIDES=3;
         Point verts[NSIDES];
     public:
-        Triangle(Point p1n, Point p2n, Point p3n);
+        Triangle(Point P1, Point P2, Point P3);
         double perimeter();
         double area();
 }
@@ -61,7 +60,7 @@ class Square{
         static const int NSIDES=4;
         Point verts[NSIDES]
     public:
-        Square(Point p1n, Point p2n, Point p3n, Point p4n);
+        Square(Point P1, Point P2, Point P3, Point P4);
         double perimeter();
         double area();
 }
@@ -95,8 +94,8 @@ double Square::perimeter(){
 \begin{minted}{c++}
 class Shape{
     protected:
-        static const int NSIDES = 1;
-        Point verts[NSIDES];
+        int NSIDES;
+        std::vector <Point> verts;
     public:
         double perimeter();
         double area();
@@ -119,24 +118,35 @@ double Shape::perimeter(){
 \begin{frame}[fragile]{Derived: Triangle}
 \begin{minted}{c++}
 class Triangle : public Shape {
-    private:
-        static const int NSIDES=3;
-    public:
-        Triangle(Point p1n, Point p2n, Point p3n);
+   public:
+        Triangle(Point P1, Point P2, Point P3);
         double area();
 };
+
+Triangle::Triangle(Point P1, Point P2, Point P3){
+   NSIDES = 3;
+   verts.push_back(P1);
+   verts.push_back(P2);
+   verts.push_back(P3);   
+}
 \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Derived: Square}
 \begin{minted}{c++}
 class Square : public Shape {
-    private:
-        static const int NSIDES=4;
     public:
-        Square(Point p1n, Point p2n, Point p3n, Point p4n);
+        Square(Point P1, Point P2, Point P3, Point P4);
         double area();
 };
+
+Square:Square(Point P1, Point P2, Point P3, Point P4){
+   NSIDES = 4;
+   verts.push_back(P1);
+   verts.push_back(P2);
+   verts.push_back(P3);   
+   verts.push_back(P4);
+}
 \end{minted}
 \end{frame}
 
@@ -160,4 +170,5 @@ class Square : public Shape {
 	\end{itemize}
 \end{block}
 \end{frame}
+
 \end{document}
