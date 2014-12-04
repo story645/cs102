@@ -16,6 +16,7 @@ class Point{
    bool equal(Point P);
    bool operator==(Point P);
    friend double distance(Point P1, Point P2);
+   friend double slope(Point P1, Point P2);
 };
 
 Point::Point(){};
@@ -53,3 +54,7 @@ double distance(Point P1, Point P2)
    return sqrt(pow(P1.x-P2.x,2.0)+pow(P1.y-P2.y, 2.0));
 }
 
+double slope(Point P1, Point P2)
+{
+   return (P1.y-P2.y)/(P1.x-P2.x);
+}
