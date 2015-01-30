@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
-\usepackage{listings}
+\usepackage{minted}
 
 \begin{document}
 
@@ -13,44 +13,45 @@
 \begin{enumerate}
 \item Open a plaintext editor (notepad, notepad++)
 \item Type the following in the editor:
-	\begin{lstlisting}
-	#include <iostream>
-	using namespace std;
-	
-	int main(){
-		cout<<"Hello World!"<<endl;
-		return 0;
-	}
-	\end{lstlisting}
+\begin{minted}{c++}
+#include <iostream>
+int main(){
+	std::cout<<"Hello World!"<<std::endl;
+	return 0;
+}
+\end{minted}
 \item Save the file as hello.cpp on the desktop
 \item Open a terminal (command prompt in Windows)
-\item Change into the directory(folder) containing hello.cpp by typing the following into the terminal:
-	\begin{lstlisting}[language=bash]
-	>>cd  \Users\username\Desktop
-	\end{lstlisting}
+\item Change into the directory(folder) containing hello.cpp by typing the following into the terminal: 
+\begin{minted}{bat}
+cd  \Users\username\Desktop
+\end{minted}
+Replace \texttt{username} with the username used to log into the computer.
+
 \item Compile by typing the following into the terminal:
-	\begin{lstlisting}[language=bash]
-	>> g++ -Wall -o hello hello.cpp
-	\end{lstlisting}
-\item Run the file by typing the following into the terminal:
-	\begin{lstlisting}[language=bash]
-	>> hello.exe
-	\end{lstlisting}
+\begin{minted}{bat}
+g++ -Wall -o hello hello.cpp
+\end{minted}
+Note: \texttt{hello} is an arbitrary name, and the executable and source names do not need to match
+
+\item Run the executable file by typing the following into the terminal:
+\begin{minted}{bat}
+hello.exe
+\end{minted}
 
 \end{enumerate}
-
+\pagebreak
 \section*{Debug Hello World}
 \begin{enumerate}
 \item Type the following in the editor:
-	\begin{lstlisting}
-	include <iostream>
-	using namespace std;
+\begin{minted}{c++}
+include <iostream>
 	
-	int main(){
-		cout<<"Hello World!<<endl;
-		return 0
-	}
-	\end{lstlisting}
+int main(){
+	cout<<"Hello World!<<std::endl;
+	return 0
+}
+\end{minted}
 \item Save it and compile
 \\
 \item Answer the following questions:
