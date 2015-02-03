@@ -4,6 +4,7 @@
 \usepackage{graphicx}
  \usepackage{multimedia}
 \usepackage{media9}
+\usepackage{minted}
 
 \graphicspath{{./figures/}}
 \usetheme{ccnycrest}
@@ -176,6 +177,47 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Literals}
+\begin{description}
+\item [integer]
+\begin{minted}{c++}	
+...-10, -9, ..., -1, 0, 1, ...9, 10....
+\end{minted}
+\item [double]
+\begin{minted}{c++}
+...-1.222...-.045244.....0.00001....4.5...
+\end{minted}
+\item [float] 
+\begin{minted}{c++}	
+...-23e12...-12e-2....-2e2...13e-2...45e15...
+\end{minted}
+\item [character]
+\begin{minted}{c++}
+'a', 'b', ...'X', 'Y', 'Z'...'@', '&', ','...
+\end{minted}
+\item [bool]
+\begin{minted}{c++}	
+true, false
+\end{minted}
+\item[string]
+\begin{minted}{c++}
+"hello world!", "good bye world".... 
+\end{minted}
+\end{description}
+\end{frame}
+
+\begin{frame}{this is not a pipe}
+\begin{figure}
+		\href{http://www.tcf.ua.edu/Classes/Jbutler/T311/Modernism.htm}{\includegraphics[width=1\textwidth]{MagrittePipe}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{this is a pipe}
+	\begin{figure}
+		\includegraphics[width=1\textwidth]{pipe}
+	\end{figure}
+\end{frame}
+
 \begin{frame}{Variables}
 	Variables are used to store information for later use. 
 	\begin{figure}
@@ -218,51 +260,6 @@
 		\pause
 		\item Can't have more than 1024 characters 
 	\end{itemize}	
-\end{frame}
-
-\begin{frame}{Declaration Statement}
-	\begin{block}{How they work:}
-		\begin{itemize}
-			\item identifies the variable \textbf{name}
-			\item specifies the variable \textbf{type}
-		\end{itemize}
-	\end{block}
-	\pause
-	\begin{block}{How they're written:}
-		\begin{center}
-			\textcolor{DarkOrchid}{\textbf{type}} \textit{name};\\
-			\pause
-			\textcolor{DarkOrchid}{\textbf{type}} \textit{name1}, \textit{name2}, \textit{name3}, ...;
-		\end{center}
-	\end{block}
-\end{frame}
-
-\begin{frame}{Declaration: integer}
-	\begin{itemize}
-		\item \textcolor{DarkOrchid}{\textbf{int}} \textit{voltage};
-		\item \textcolor{DarkOrchid}{\textbf{int}} \textit{power}, \textit{resistance};
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Declaration: double}
-	\begin{itemize}
-		\item \textcolor{DarkOrchid}{\textbf{double}} \textit{temperature};
-		\item \textcolor{DarkOrchid}{\textbf{double}} \textit{pressure}, \textit{wind};
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Declaration: float}
-	\begin{itemize}
-		\item \textcolor{DarkOrchid}{\textbf{float}} \textit{acceleration};
-		\item \textcolor{DarkOrchid}{\textbf{float}} \textit{gravity}, \textit{velocity};
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Declaration: character}
-	\begin{itemize}
-		\item \textcolor{DarkOrchid}{\textbf{char}} \textit{no\textunderscore quit};
-		\item \textcolor{DarkOrchid}{\textbf{char}} \textit{no\textunderscore quit}, \textit{quit};
-	\end{itemize}
 \end{frame}
 
 \end{document}
