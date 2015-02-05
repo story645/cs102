@@ -1,11 +1,10 @@
-
 \documentclass[xcolor={dvipsnames}]{beamer}
 \usepackage{amsmath,amsfonts,amssymb,pxfonts,eulervm,xspace}
 \usepackage{graphicx}
  \usepackage{multimedia}
 \usepackage{media9}
 \usepackage{tabularx}
-
+\usepackage{minted}
 \graphicspath{{./figures/}}
 \usetheme{ccnycrest}
 
@@ -189,30 +188,31 @@
 \end{block}
 \end{frame}
 
-\begin{frame}{Accumulators}
-	\begin{block}{}
-		\begin{itemize}
-		\item used to keep track of subtotals
-		\item operators: +=, -=, *=, /=, \%=
-		\end{itemize}
-	\end{block}
+\begin{frame}[fragile]{Accumulators}
+\begin{block}{Operators}
+\huge
+\begin{minted}{c++}	
+	+=, -=, *=, /=, %=
+\end{minted}
+
+\end{block}
 	
-	\begin{block}{}
-		\begin{itemize}
-			\item int sum = 10;
-			\item sum = sum + 10;
-			\item sum+=10;
-		\end{itemize}
+\begin{block}{How to use an accumulator:}
+\begin{minted}{c++}
+int sum = 10;
+sum+=10; //equivalent to sum = sum + 10;
+sum/=5; // equivalent to sum = sum /5;
+\end{minted}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Counters}
+\begin{frame}[fragile]{Counters}
 	\center
 \begin{block}{prefix}
 	%\center
 	\begin{tabularx}{\textwidth}{| X | X |}
 		\hline
-		k=++n; & n = n+1; \\
+		k=++n;& n = n+1; \\
 			   & k = n;\\
 		\hline
 		k=$\text{-}\text{-}$n; &  n = n-1;\\
@@ -227,11 +227,60 @@
 		k=n++; & k = n; \\
 			   & n = n + 1;\\
 		\hline
-		k=n$\text{-}\text{-}$; &  k = n;\\
+		k=n$\text{-}\text{-}$; & k = n;\\
 					     &  n = n-1;\\
 		\hline
 	\end{tabularx}
 \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{String Object}
+		\huge
+		\begin{minted}{c++}
+		string cn = "CS102";
+		string s1  = "K";
+		\end{minted}
+	\normalsize 
+
+	\begin{tabular}{| l| l | l | c |}
+		\hline
+		 \textbf{Method}& \textbf{Description} & \textbf{Example} & \textbf{Output}\\
+
+		\hline
+		\texttt{int length()} & length & \texttt{cn.length()} & 5\\
+		\texttt{int size()} &  & \texttt{cn.size()} & \\
+		\hline
+		\texttt{int at(int ind)} & character & \texttt{cn.at(3)} & '0'\\
+		\texttt{[ind]}&  at location i & \texttt{cn[3]}  &\\
+
+		\hline
+		\texttt{int find(str)} & where str & \texttt{cn.find("S1")} & 1\\
+					& first occurs& &\\
+		\hline
+		\texttt{+} & adds strings & \texttt{cn + " "+ s1} & "CS102 K"\\
+		\hline
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{String Input and Output}
+	\begin{tabularx}{\textwidth}{| l | X |}
+		\hline
+		\textbf{Object or Function} & \textbf{What it does}\\
+		\hline
+		\texttt{cout<<Obj;}& outputs Obj to screen\\
+					      & Obj can be of any type\\
+		\hline
+		\texttt{cin>>Obj;} & stores keyboard input in Obj \\
+					    & Obj can be of any type\\
+				 	    & stops reading string input when white space is encountered\\
+		\hline
+		\texttt{getline(cin, Obj);} & stores keyboard input Obj\\
+							& Obj must be a string\\
+							    & stops reading input when\\
+							    & newline is encountered\\
+							   
+		\hline
+	\end{tabularx}
 \end{frame}
 
 \end{document}
