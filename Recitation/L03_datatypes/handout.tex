@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
-\usepackage{listings}
+\usepackage{minted}
 \usepackage{amsmath}
 
 \begin{document}
@@ -47,7 +47,7 @@ The formula to convert Celsius to Fahrenheit is:
 
 \section*{Pointers and References}
 Write a C++ program that includes the following code:
-\begin{lstlisting}
+\begin{minted}{c++}
 int b;
 int& a = b;
 a = 10;
@@ -57,15 +57,15 @@ int d;
 int *c = &d;
 *c = 10;
 cout<<"c="<<c<<" d="<<d<<endl;
-\end{lstlisting}
+\end{minted}
 Explain what each line does. Then modify the program so that a and c are set using user input (hint: substitute a variable for 10); 
 
 \section*{Extra: Memory Allocation}
-Using the sizeof() operator determine the number of bytes your computer uses to store:
+Using the \texttt{sizeof()} operator determine the number of bytes your computer uses to store:
 \begin{enumerate}
 	\item an integer, a character, and a double-precision number
 	\item the \textbf{address} of an integer, a character, and a double-precision number
 \end{enumerate}
-Hint: sizeof(*int) can be used to determine the number of memory bytes used for a pointer to an integer.) Would you expect the size of each address to be the same? Why or why not?
+Hint: \texttt{sizeof(*int)} can be used to determine the number of memory bytes used for a pointer to an integer.) Would you expect the size of each address to be the same? Why or why not?
 
 \end{document}
