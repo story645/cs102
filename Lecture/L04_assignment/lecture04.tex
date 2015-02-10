@@ -188,6 +188,33 @@
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Integer Division}
+\begin{block}{Code}
+\begin{minted}{c++}
+std::cout<<"Result: "<<1/2<<std::endl;
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Output}
+\begin{minted}{bat}
+Result: 0
+\end{minted}
+\end{block}
+\pause
+\begin{block}{Fix (Either)}
+\begin{minted}{c++}
+std::cout<<"Result: "<<1.0/2<<std::endl;
+std::cout<<"Result: "<<1/2.0<<std::endl;
+\end{minted}
+\end{block}
+\begin{block}{Correct Output}
+\begin{minted}{bat}
+Result: 0.5
+\end{minted}
+\end{block}
+
+\end{frame}
+
 \begin{frame}[fragile]{Accumulators}
 \begin{block}{Operators}
 \huge
@@ -237,8 +264,8 @@ sum/=5; // equivalent to sum = sum /5;
 \begin{frame}[fragile]{String Object}
 		\huge
 		\begin{minted}{c++}
-		string cn = "CS102";
-		string s1  = "K";
+		std::string cn = "CS102";
+		std::string s1  = "K";
 		\end{minted}
 	\normalsize 
 
@@ -257,7 +284,7 @@ sum/=5; // equivalent to sum = sum /5;
 		\texttt{int find(str)} & where str & \texttt{cn.find("S1")} & 1\\
 					& first occurs& &\\
 		\hline
-		\texttt{+} & adds strings & \texttt{cn + " "+ s1} & "CS102 K"\\
+		\texttt{+} & adds strings & \texttt{cn + " "+ s1} & \texttt{CS102 K}\\
 		\hline
 	\end{tabular}
 \end{frame}
@@ -280,8 +307,26 @@ sum/=5; // equivalent to sum = sum /5;
 							    & newline is encountered\\
 							   
 		\hline
+		\texttt{cin.ignore();} & Use before \texttt{getline} when  \texttt{getline} is preceded by \texttt{cin} and \texttt{cout}\\
+\hline
 	\end{tabularx}
 \end{frame}
 
+\begin{frame}[fragile]{String IO Sample}
+\begin{minted}{c++}
+#include <iostream>
+int main(){
+	std::string class, section, name; 
+	std::cout<<"Enter class name: "<<std::endl;
+	std::getline(std::cin, class);
+	std::cout<<"Enter section"<<std::endl;
+	std::cin>>section;
+	std::cout<<"Enter name: "<<std::endl;
+	std::cin.ignore();
+	std::getline(std::cin, name);
+	return 0;
+}
+\end{minted}
+\end{frame}
 \end{document}
 

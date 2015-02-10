@@ -94,14 +94,12 @@
 #include <iostream>
 #include <cmath> //math library
 
-using namespace std;
-
 int main(){
     const double PI = 3.1416;
     int r = 10;
     //pow is in the math library;
     double area = PI*pow(r, 2.0);
-    cout<<"Area: "<<area<<endl;
+    std::cout<<"Area: "<<area<<std::endl;
     return 0;
 }
 \end{minted}
@@ -139,8 +137,8 @@ int main(){
 \begin{minted}{c++}
 #include <iomanip>//library for formatting output
 //...code
-cout<<"Area: "<<setiosflags(ios::fixed)
-    <<setprecision(3)<<area<<endl;
+std::cout<<"Area: "<<std::setiosflags(std::ios::fixed)
+         <<std::setprecision(3)<<area<<std::endl;
 //...more code
 \end{minted}
 
