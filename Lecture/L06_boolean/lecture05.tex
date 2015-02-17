@@ -40,89 +40,119 @@
 
 
 
-\begin{frame}{Boolean Data Type}
+\begin{frame}[fragile]{Boolean Data Type}
+\LARGE
 \begin{block}{Declaration}
 	\begin{center}
-		\item \textcolor{DarkOrchid}{\textbf{bool}} \textit{A};\\
-		\item \textcolor{DarkOrchid}{\textbf{bool}} \textit{B};
-		\item \textcolor{DarkOrchid}{\textbf{bool}} \textit{C};
+\begin{minted}{c++}
+bool A;
+bool B;
+bool C;
+\end{minted}
 	\end{center}
 \end{block}
 \pause
 \begin{block}{Assignment}
-	\begin{align*}
-		A &= \textcolor{RoyalBlue}{\textbf{true}};\\
-		B &= \textcolor{RoyalBlue}{\textbf{false}};
-	\end{align*}
+\begin{minted}{c++}
+A = true;
+B = false;
+\end{minted}
 \end{block}
 \end{frame}
 
-\begin{frame}{Boolean Algebra: Not}
+\begin{frame}[fragile]{Boolean Algebra: Not}
 	\begin{figure}
 		\href{http://www.daviddarling.info/encyclopedia/B/Boolean_algebra.html}{\includegraphics[width=1\textwidth]{not}}
 	\end{figure}
 	\pause
 	\begin{block}{C++}
-		\begin{center}
-			{\LARGE B = \textcolor{red}{!}A;}
-		\end{center}
+\Huge
+	\begin{minted}{c++}
+	B = !A;
+	\end{minted}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Boolean Algebra: And}
+\begin{frame}[fragile]{Boolean Algebra: And}
 	\begin{figure}
 		\href{http://www.daviddarling.info/encyclopedia/B/Boolean_algebra.html}{\includegraphics[width=1\textwidth]{and}}
 	\end{figure}
 	\pause
+
 	\begin{block}{C++}
-		\begin{center}
-			{\LARGE C = A\textcolor{red}{\&\&}B;}
-		\end{center}
+\Huge
+\begin{minted}{c++}
+C = A&&B;
+\end{minted}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Boolean Algebra: Not And}
+\begin{frame}[fragile]{Boolean Algebra: Not And}
 \begin{figure}
 		\href{http://www.daviddarling.info/encyclopedia/B/Boolean_algebra.html}{\includegraphics[width=1\textwidth]{not_and}}
 	\end{figure}
 	\pause
 	\begin{block}{C++}
-		\begin{center}
-			{\LARGE C = \textcolor{red}{!}(A\textcolor{red}{\&\&}B); }
-		\end{center}
+\Huge
+		\begin{minted}{c++}
+		B=!(A&&B);
+		\end{minted}
 	\end{block}
 
 \end{frame}
 
-\begin{frame}{Boolean Algebra: Or}
+\begin{frame}[fragile]{Boolean Algebra: Or}
 \begin{figure}
 		\href{http://www.daviddarling.info/encyclopedia/B/Boolean_algebra.html}{\includegraphics[width=1\textwidth]{or}}
 \end{figure}
 \pause
 	\begin{block}{C++}
-		\begin{center}
-			{\LARGE C = A\textcolor{red}{$\mid\mid$}B;}
-		\end{center}
+\Huge
+\begin{minted}{c++}
+C = A||B;
+\end{minted}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Boolean Algebra: Not Or}
+\begin{frame}[fragile]{Boolean Algebra: Not Or}
 \begin{figure}
 		\href{http://www.daviddarling.info/encyclopedia/B/Boolean_algebra.html}{\includegraphics[width=1\textwidth]{not_or}}
 	\end{figure}
 	\pause
 	\begin{block}{C++}
-		\begin{center}
-			{\LARGE C = \textcolor{red}{!}(A\textcolor{red}{$\mid\mid$}B);}
-		\end{center}
+\Huge
+\begin{minted}{c++}
+C = !(A||B);
+\end{minted}
 	\end{block}
 \end{frame}
 
-\begin{frame}{De Morgan's Law}
-	\begin{align*}
-	\textcolor{red}{!}(A\textcolor{red}{\&\&}B)  &= (\textcolor{red}{!}A \textcolor{red}{\mid\mid}\textcolor{red}{!}B)\\
-	\textcolor{red}{!}(A\textcolor{red}{\mid\mid}B)  &= (\textcolor{red}{!}A \textcolor{red}{\&\&}\textcolor{red}{!}B)
-	\end{align*}
+\begin{frame}[fragile]{De Morgan's Law}
+\Huge
+\begin{center}
+\begin{minted}{c++}
+!(A&&B) == (!A||!B)
+!(A||B) == (!A&&!B)
+\end{minted}
+\end{center}
+\begin{block}{}
+\Large
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+A & B & A\&\&B & \textbf{!(A\&\&B)} & !A & !B &\textbf{(!A$\mid \mid$ !B)} \\
+\hline
+0 & 0 & 0 & \textbf{1} & 1 & 1 &  \textbf{1}\\
+\hline
+0 & 1 & 0 & \textbf{1} & 1 & 0 & \textbf{1}\\
+\hline
+1 & 0 & 0 & \textbf{1} & 0 & 1 & \textbf{1} \\
+\hline
+1 & 1 & 1 & \textbf{0} & 0 & 0  & \textbf{0} \\
+\hline
+\end{tabular}
+\end{center}
+\end{block}
 \end{frame}
 
 \begin{frame}{Relational Operator}
@@ -147,12 +177,14 @@
 \end{frame}
 
 \begin{frame}[fragile]{Comparing Characters}
+\Huge
 	\begin{block}{}
 	\begin{minted}{c++}
 		'A'<'B'
 	\end{minted}
 	\end{block}
 	\begin{block}{}
+\normalsize
 	\begin{itemize}
 		\item comparison is done between ASCII encodings 
 		\item words are compared on a character basis
@@ -163,6 +195,7 @@
 
 \begin{frame}[fragile]{Comparing strings}
 	\begin{block}{}
+\Huge
 	\begin{minted}{c++}
 		string a = "hello";
 		string b = "goodbye";
@@ -170,6 +203,7 @@
 	\end{minted}
 	\end{block}
 	\begin{block}{}
+\normalsize
 	\begin{itemize}
 		\item comparison is done between ASCII encodings 
 		\item words are compared on a character basis
@@ -180,7 +214,8 @@
 
 
 \begin{frame}[fragile]{Comparing Doubles and Floats}
-	\begin{block}{Roundoff Errors}
+\Large	
+\begin{block}{Roundoff Errors}
 		\begin{description}
 			\item[FALSE] 1/3.0 == 0.333333333333333
 			\item[TRUE] 1/3.0 == 0.3333333333333333
@@ -191,7 +226,8 @@
 		\begin{minted}{c++}
 			float EPSILON = 1E-9;
 			abs(1/3.0 - 0.333333333333333) < EPSILON;
-			//epsilon is a constant set to a teeny tiny value
+			/**epsilon is a constant 
+			set to a teeny tiny value**/
 		\end{minted}
 	\end{block}
 \end{frame}
@@ -206,8 +242,8 @@ Write relational expressions to express the following conditions (using variable
 		\item The letter input is K.
 		\item A length is greater than 2 feet and less than 3 feet.
 		\item The current day is the 15th day of the 1st month.
-		\item The automobile’s speed is 35 mph and its acceleration is greater than 4 mph per second.
-		\item An automobile’s speed is greater than 50 mph and it has been moving for at least 5 hours.
+		\item The automobile's speed is 35 mph and its acceleration is greater than 4 mph per second.
+		\item An automobile's speed is greater than 50 mph and it has been moving for at least 5 hours.
 		\item The code is less than 500 characters and takes more than 2 microseconds to transmit.
 	\end{itemize}
 \end{frame}
