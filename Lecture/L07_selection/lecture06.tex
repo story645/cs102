@@ -36,10 +36,10 @@
 \begin{column}{0.5\textwidth}
 \begin{minted}{c++}
 #include<iostream>
-using namespace std;
 
 int main(){
-    cout<<"Hello World!"<<endl;
+    std::cout<<"Hello World!"
+             <<std::endl;
     return 0;
 }
 \end{minted}
@@ -65,13 +65,12 @@ int main(){
 \begin{frame}[fragile]{if statements}
 \begin{minted}{c++}
 #include<iostream>
-using namespace std;
 
 int main(){
     int t;
-    cin>>t;
+    std::cin>>t;
     if (t<8){
-        cout<<"Hello World!"<<endl;
+        std::cout<<"Hello World!"b<<std::endl;
     }
     return 0;
 }
@@ -90,16 +89,15 @@ int main(){
 \begin{frame}[fragile]{if-else statements}
 \begin{minted}{c++}
 #include<iostream>
-using namespace std;
 
 int main(){
     int t;
-    cin>>t;
+    std::cin>>t;
     if (t<8){
-        cout<<"Hello World!"<<endl;
+        std::cout<<"Hello World!"<<std::endl;
     }
     else{
-        cout<<"Goodbye World!"<<endl;
+        std::cout<<"Goodbye World!"<<std::endl;
     }
     return 0;
 }
@@ -117,19 +115,18 @@ int main(){
 \begin{frame}[fragile]{if else-if else statements}
 \begin{minted}{c++}
 #include<iostream>
-using namespace std;
 
 int main(){
     int t;
-    cin>>t;
+    std::cin>>t;
     if (t<8){
-        cout<<"Hello World!"<<endl;
+        std::cout<<"Hello World!"<<std::endl;
     }
     else if(t>16){
-        cout<<"Goodbye World!"<<endl;
+        std::cout<<"Goodbye World!"<<std::endl;
     }
     else{
-        cout<<"Nice to meet ya!"<<endl;
+        std::cout<<"Nice to meet ya!"<<std::endl;
     }
     return 0;
 }
@@ -173,17 +170,17 @@ int main(){
 \begin{minted}{c++}
 //...
 int t;
-cin>>t;
+std::cin>>t;
 
 if (t<8){
-    cout<<"Hello World!"<<endl;
+    std::cout<<"Hello World!"<<std::endl;
 }  
 
 if(t>16){
-    cout<<"Goodbye World!"<<endl;
+    std::cout<<"Goodbye World!"<<std::endl;
 }
 
-cout<<"Nice to meet ya!"<<endl;
+std::cout<<"Nice to meet ya!"<<std::endl;
 
 //...   
 \end{minted}
@@ -227,17 +224,17 @@ cout<<"Nice to meet ya!"<<endl;
 
 \begin{frame}[fragile]{Switch Statement Without Fall Throught}
 \begin{minted}{c++}
-cin>>m;
+std::cin>>m;
 switch(m){
     case 1: 
-        cout<<"January"<<endl; 
+        std::cout<<"January"<<std::endl; 
         break;
     //cases 2-11
     case 12:
-        cout<<"December"<<endl;
+        std::cout<<"December"<<std::endl;
         break;
     default:
-        cout<<"Invalid"<<endl;
+        std::cout<<"Invalid"<<std::endl;
 }
 \end{minted}
 \end{frame}
@@ -252,16 +249,16 @@ switch(m){
 
 \begin{frame}[fragile]{Switch Statement With Fall Through}
 \begin{minted}{c++}
-cin>>m;
+std::cin>>m;
 switch(m){
     case 1: 
-        cout<<"January"<<endl; 
+        std::cout<<"January"<<std::endl; 
     //cases 2-11
     case 12:
-        cout<<"December"<<endl;
+        std::cout<<"December"<<std::endl;
         break;
     default:
-        cout<<"Invalid"<<endl;
+        std::cout<<"Invalid"<<std::endl;
 }
 \end{minted}
 \end{frame}
@@ -312,13 +309,16 @@ if(!found){
 \begin{minted}{c++}
 //..
 try{
-    if(!found){
-        throw 401;
-    }
+   	password(found);
 }catch(int){
-    cout<<"Username or Password Not Found"<<endl;
+    std::cout<<"Password Not Found"<<std::endl;
 }
 //...
+void password(found){
+    if(!found){
+        	throw 401;
+    }
+}
 \end{minted}
 \end{frame}
 
