@@ -27,41 +27,30 @@
 
 \title{ CS102: While and Do While Loops }
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
+\date
 
 
 \begin{frame}
 	\titlepage
 \end{frame}
 
-\begin{frame}{Making a Pretzel}
-	\begin{center}
-		\animategraphics[height=3in,autoplay,controls]{12}{assembly/animate_}{000}{271}
-	\end{center}
-\end{frame}
-
-\begin{frame}{1 Pretzel}
+\begin{frame}{Print one line?} 
 	\begin{figure}
-		\includegraphics[width=.8\textwidth]{if_pretzel}
+		\includegraphics[width=1\textwidth]{if_line}
 	\end{figure}
 \end{frame}
 
-%
-\begin{frame}[fragile]{Make A Pretzel?}
+\begin{frame}[fragile]{Print one line?}
+\large
 \begin{minted}{c++}
-#include<iostream>
-using namespace std;
+#include <iostream>
 
 int main(){
-    char pretzel;
-    cout<<"Would you like a pretzel?"<<endl;
-    cin>>pretzel;
-    if(pretzel == 'y' || pretzel =='Y'){
-       cout<<"Grab each end of dough rope"<<endl;
-       cout<<"Make a U-Shape with the rope"<<endl;
-       cout<<"Hold the ends of the rope"<<endl;
-       cout<<"Cross the ends over each other"<<endl;
-       cout<<"Press onto the bottom of the U"<<endl;
+    char print;
+    cout<<"Print line?"<<endl;
+    cin>>print;
+    if(print== 'y' || print =='Y'){
+       std::cout<<"**************"<<std::endl;
     }
     return 0;
 }
@@ -69,30 +58,29 @@ int main(){
 \end{frame}
 
 
-\begin{frame}{Make Lots of Pretzels}
+\begin{frame}{Print one line? More?}
 	\begin{figure}
-		\includegraphics[width=.75\textwidth]{while_pretzels}
+		\includegraphics[width=1\textwidth]{while_line}
 	\end{figure}
 \end{frame}
 
 %
-\begin{frame}[fragile]{Make Lots of  Pretzels?}
+\begin{frame}[fragile]{Print one line? More?}
+\large
 \begin{minted}{c++}
-    char pretzel = 'y';
+int main(){
+    char print;
 
-    cout<<"Would you like a pretzel?"<<endl;
-    cin>>pretzel;
+    std::cout<<"Print line? "<<std::endl;
+    std::cin>>print;
 
-    while(pretzel == 'y' || pretzel =='Y'){
-       cout<<"Grab each end of dough rope"<<endl;
-       cout<<"Make a U-Shape with the rope"<<endl;
-       cout<<"Hold the ends of the rope"<<endl;
-       cout<<"Cross the ends over each other"<<endl;
-       cout<<"Press onto the bottom of the U"<<endl;       
-
-       cout<<"Would you like a pretzel?"<<endl;
-       cin>>pretzel;
+    while(print == 'y' || print =='Y'){
+        std::cout<<"**************"<<std::endl;
+        std::cout<<"Print line? "<<std::endl;
+        std::cin>>print;
     }
+return 0;
+}
 \end{minted}
 \end{frame}
 
@@ -105,28 +93,26 @@ int main(){
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Make At Least 1 Pretzel}
+\begin{frame}{Print another line?}
 	\begin{figure}
-		\includegraphics[width=.8\textwidth]{do_while_pretzels}
+		\includegraphics[width=1\textwidth]{do_while_line}
 	\end{figure}
 \end{frame}
 
-%
-\begin{frame}[fragile]{Make Lots of  Pretzels?}
+\begin{frame}[fragile]{Print another line?}
+\large
 \begin{minted}{c++}
-    char pretzel;
+int main(){
+    char print;
 
     do{     
-       cout<<"Grab each end of dough rope"<<endl;
-       cout<<"Make a U-Shape with the rope"<<endl;
-       cout<<"Hold the ends of the rope"<<endl;
-       cout<<"Cross the ends over each other"<<endl;
-       cout<<"Press onto the bottom of the U"<<endl;
+        std::cout<<"**************"<<std::endl;
+        std::cout<<"Print line? "<<std::endl;
+        std::cin>>print;
+    }while(print == 'y' || print =='Y');
 
-       cout<<"Would you like a pretzel?"<<endl;
-       cin>>pretzel;
-    }while(pretzel == 'y' || pretzel =='Y');
- 
+ return 0;
+}
 \end{minted}
 \end{frame}
 
@@ -139,60 +125,56 @@ int main(){
 
 \begin{frame}{Break out of Loop}
 	\begin{figure}
-		\includegraphics[width=.8\textwidth]{break_pretzels}
+		\includegraphics[width=1\textwidth]{break_line}
 	\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Break Statement}
 \begin{minted}{c++}
-    char pretzel = 'y';
-    int dough == 100;
-    cout<<"Would you like a pretzel?"<<endl;
-    cin>>pretzel;
+const int LIMIT = 100;
+char print= 'y';
+int linecount = 0;
 
-    while(pretzel == 'y' || pretzel =='Y'){
-       cout<<"Grab each end of dough rope"<<endl;
-       cout<<"Make a U-Shape with the rope"<<endl;
-       cout<<"Hold the ends of the rope"<<endl;
-       cout<<"Cross the ends over each other"<<endl;
-       cout<<"Press onto the bottom of the U"<<endl; 
-       dough-=10;
-       if(dough<0){
-          break;     
-       }
-       cout<<"Would you like a pretzel?"<<endl;
-       cin>>pretzel;
+std::cout<<"Print a line?"<<std::endl;
+std::cin>>pretzel;
+
+while(print == 'y' || print =='Y'){
+    std::cout<<"**************"<<std::endl;
+    linecount++;
+    if(linecount>LIMIT){
+        break;     
     }
+    std::cout<<"Print line? "<<std::endl;
+    std::cin>>print;
+}
 \end{minted}
 \end{frame}
 
-\begin{frame}{Make At Least 1 Pretzel}
+\begin{frame}{Print 100, then ask}
 	\begin{figure}
-		\includegraphics[width=.8\textwidth]{continue_pretzels}
+		\includegraphics[width=1\textwidth]{continue_line}
 	\end{figure}
 \end{frame}
 
 
 \begin{frame}[fragile]{Continue Statement}
 \begin{minted}{c++}
-    char pretzel = 'y';
-    int dough = 100;
-    cout<<"Would you like a pretzel?"<<endl;
-    cin>>pretzel;
+const int LIMIT = 100;
+char print= 'y';
+int linecount = 0;
 
-    while(pretzel == 'y' || pretzel =='Y'){
-       cout<<"Grab each end of dough rope"<<endl;
-       cout<<"Make a U-Shape with the rope"<<endl;
-       cout<<"Hold the ends of the rope"<<endl;
-       cout<<"Cross the ends over each other"<<endl;
-       cout<<"Press onto the bottom of the U"<<endl; 
-       dough-=10;
-       if(dough>0){
-          continue;     
-       }
-       cout<<"Would you like a pretzel?"<<endl;
-       cin>>pretzel;
+std::cout<<"Print a line?"<<std::endl;
+std::cin>>pretzel;
+
+while(print == 'y' || print =='Y'){
+    std::cout<<"**************"<<std::endl;
+    linecount++;
+    if(linecount<LIMIT){
+        continue;
     }
+    std::cout<<"Print line? "<<std::endl;
+    std::cin>>print;
+}
 \end{minted}
 \end{frame}
 
@@ -200,16 +182,16 @@ int main(){
 	\begin{description}
 	\item[no range]
 	\begin{minted}{c++}
-		for(;;){cout<<"hello";}
+		for(;;){std::cout<<"hello";}
 	\end{minted}
 
 	\item[always true]
 	\begin{minted}{c++}
-		while(true){cout<<"world";};
+		while(true){std::cout<<"world";};
 	\end{minted}
 	\item[always true]
 	\begin{minted}{c++}
-		do{cout<<"!"<<endl;}while(1);
+		do{std::cout<<"!"<<std::endl;}while(1);
 	\end{minted}
 
 	\item[k \& i increase]
@@ -227,7 +209,7 @@ int main(){
 	\item[no change]
 	\begin{minted}{c++}
 	     stop = 'N'
-	     do{ cout<<"quit";}{while{stop!='Y'};
+	     do{std::cout<<"quit";}{while{stop!='Y'};
 	\end{minted}
 
 	\end{description}
