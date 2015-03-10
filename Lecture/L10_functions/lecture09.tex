@@ -17,8 +17,6 @@
 
 \title{ CS102: Functions }
 \author{Hannah Aizenman}
-\date
-
 
 \begin{frame}
 	\titlepage
@@ -73,15 +71,14 @@
 \begin{frame}[fragile]{Using square(x)}
 	\begin{minted}{c++}
 #include <iostream>
-using namespace std;
 
 int square(int x); //function prototype
 
 int main(){
     int a;
-    cin>>a;
+    std::cin>>a;
     int b = square(a);
-    cout<<"square("<<a<<")="<<b<<endl;
+    std::cout<<"square("<<a<<")="<<b<<std::endl;
     return 0;
 }
 //computes x^2
@@ -129,15 +126,14 @@ data passed to the function.
 
 \begin{minted}{c++}
 #include <iostream>
-using namespace std;
 
 void square(int x, int &y); //function prototype
 
 int main(){
     int a, b;
-    cin>>a;
+    std::cin>>a;
     square(a, b);
-    cout<<"square("<<a<<")="<<b<<endl;
+    std::cout<<"square("<<a<<")="<<b<<std::endl;
     return 0;
 }
 //function for computing x^2
@@ -181,12 +177,11 @@ void square(int x, int &y){
 
 \begin{minted}{c++}
 #include <iostream>
-using namespace std;
 
 int square(int x=0);
 
 int main(){
-   cout<<"square(0)="<<square()<<endl;
+   std::cout<<"square(0)="<<square()<<std::endl;
    return 0;
 }
 
@@ -243,9 +238,9 @@ int square(int x=0){
 
 	int main(){
 	   int w = square(2);
-	   cout<<"square(2)="<<w<<endl;
+	   std::cout<<"square(2)="<<w<<std::endl;
 	   double v = square(2.5);
-	   cout<<"square(2.5)="<<v<<endl;
+	   std::cout<<"square(2.5)="<<v<<std::endl;
 	   return 0;
 	}
 //implementations
@@ -303,7 +298,6 @@ void square(T1 x, T2 &y){
 \begin{frame}[fragile]{Using Templates}
 \begin{minted}{c++}
 #include <iostream>
-using namespace std;
 
 template <class T>
 T square(T x){
@@ -312,9 +306,9 @@ T square(T x){
 
 int main(){
    int w = square(2);
-   cout<<"square(2)="<<w<<endl;
+   std::cout<<"square(2)="<<w<<std::endl;
    double v = square(2.5);
-   cout<<"square(2.5)="<<v<<endl;
+   std::cout<<"square(2.5)="<<v<<std::endl;
    return 0;
 }
 \end{minted}
