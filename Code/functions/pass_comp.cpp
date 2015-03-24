@@ -8,11 +8,13 @@ int main(){
 	int a=5;
 	cout<<"Pass-by-value"<<endl;
 	cout<<"a="<<a<<endl;
-	cout<<addnv(a)<<endl;
+    //cout<<addnv(a)<<endl;
 	cout<<"a="<<a<<endl;
-	cout<<addnv(a, 10)<<endl;
+	addnv(a,10);
+   //cout<<addnv(a, 10)<<endl;
 	cout<<"a="<<a<<endl;
-	cout<<addnv(a, 15)<<endl;
+	addnv(a,15);
+    //cout<<addnv(a, 15)<<endl;
 	cout<<"a="<<a<<endl;
 	cout<<"Pass-by-reference"<<endl;
 	cout<<"a="<<a<<endl;
@@ -28,7 +30,8 @@ int main(){
 
 //adds n to x, pass by value
 int addnv(int x, int n=0){
-	return x+n;
+	x= x+n;
+    return x;
 }
 
 //adds n to x, pass by reference

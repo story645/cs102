@@ -16,7 +16,7 @@
 
 \title{ CS102: I/O Streams}
 \author{Hannah Aizenman}
-\date
+
 
 
 \begin{frame}
@@ -34,11 +34,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std;
 
 int main(){
-        string filename = "data.txt";
-        ifstream inFile;
+        std::string filename = "data.txt";
+        std::ifstream inFile;
         inFile.open(filename.c_str());
         if (!inFile){
                 //error handling
@@ -53,15 +52,14 @@ int main(){
 
 \begin{frame}[fragile]{Reading contents of a file: Word by Word}
 \begin{minted}{c++}
-string filename = "inputword.txt";
-string word;
-ifstream inFile;
+std::string filename = "inputword.txt";
+std::string word;
+std::ifstream inFile;
 inFile.open(filename.c_str());
 if (!inFile){
         cout<<"Error: Can't open "<<filename<<endl;
 }else{
-        while(inFile){
-                inFile>>word;
+        while(inFile>>word;){
                 //do something with word variable
         }
 }
@@ -78,15 +76,14 @@ inFile.close()
 
 \begin{frame}[fragile]{Reading contents of a file: Numbers}
 \begin{minted}{c++}
-string filename = "inputnum.txt";
+std::string filename = "inputnum.txt";
 int number;
-ifstream inFile;
+std::ifstream inFile;
 inFile.open(filename.c_str());
 if (!inFile){
         cout<<"Error: Can't open "<<filename<<endl;
 }else{
-        while(inFile){
-                inFile>>number;
+        while(inFile>>number){
                 //do something with number variable
         }
 }
@@ -102,16 +99,15 @@ inFile.close();
 
 \begin{frame}[fragile]{Reading in data: Table}
 \begin{minted}{c++}
-string filename = "inputtab.txt";
-string name;
+std::string filename = "inputtab.txt";
+std::string name;
 int age;
-ifstream inFile;
+std::ifstream inFile;
 inFile.open(filename.c_str());
 if (!inFile){
     cout<<"Error: Can't open "<<filename<<endl;
 }else{
-    while(inFile){
-        inFile>>name>>age;
+    while(inFile>>name>>age){
        //do something with name, age variables
     }
 }
@@ -126,15 +122,14 @@ if (!inFile){
 
 \begin{frame}[fragile]{Reading in data: line by line}
 \begin{minted}{c++}
-string filename = "input.txt";
-string line;
-ifstream inFile;
+std::string filename = "input.txt";
+std::string line;
+std::ifstream inFile;
 inFile.open(filename.c_str());
 if (!inFile){
     cout<<"Error: Can't open "<<filename<<endl;
 }else{
     while(getline(inFile, line)){
-        cout<<line<<endl;
        //do something with line variable
     }
 }
@@ -156,8 +151,8 @@ inFile.close();
 
 \begin{frame}[fragile]{Writing out data}
 \begin{minted}{c++}
-string filename = "outfile.txt";
-ofstream outFile;
+std::string filename = "outfile.txt";
+std::ofstream outFile;
 outFile.open(filename.c_str());
 outFile<<"This is text"<<endl;
 outFile.close();
@@ -172,8 +167,8 @@ outFile.close();
 
 \begin{frame}[fragile]{Writing out more data}
 \begin{minted}{c++}
-string filename = "outfile.txt";
-ofstream outFile;
+std::string filename = "outfile.txt";
+std::ofstream outFile;
 outFile.open(filename.c_str());
 outFile<<"This is text"<<endl;
 outFile<<"This is some more text"<<endl;
@@ -192,8 +187,8 @@ outFile.close();
 
 \begin{frame}[fragile]{Writing out lots more data}
 \begin{minted}{c++}
-string filename = "outfile.txt";
-ofstream outFile;
+std::string filename = "outfile.txt";
+std::ofstream outFile;
 outFile.open(filename.c_str());
 for (int i=0; i<100; i++){
     outFile<<"This is text"<<endl;
@@ -210,7 +205,7 @@ outFile.close();
 	\end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{fstream file modes}
+\begin{frame}[fragile]{file stream file modes}
 	\begin{center}
 	\begin{minted}{c++}
 		fileobject.open(filename, mode flag);
@@ -221,21 +216,21 @@ outFile.close();
 	\hline
 	\textbf{mode flag} & \textbf{mode} & {access}\\
 	\hline
-	ios::in & input & file open for reading \\
+	std::ios::in & input & file open for reading \\
 	\hline
-	ios::out & output & file open for writing\\
+	std::ios::out & output & file open for writing\\
 	\hline
-	ios::binary & binary & operations are performed in binary more (not text)\\
+	std::ios::binary & binary & operations are performed in binary more (not text)\\
 	\hline
-	ios::ate & at end & output position starts at the end of the file \\
+	std::ios::ate & at end & output position starts at the end of the file \\
 	\hline
-	ios::app & append & ouput operations happen at end of the file (append to existing content)\\
+	std::ios::app & append & ouput operations happen at end of the file (append to existing content)\\
 	\hline
-	ios::trunc & truncate & any contents in file are discarded before opening the file\\
+	std::ios::trunc & truncate & any contents in file are discarded before opening the file\\
 	\hline
 \end{tabular}
 \end{table}
-These flags can be combined with the bitwise OR operator (|).
+These flags can be combined with the bitwise OR operator $\mid$
 \end{frame}
 
 \begin{frame}{Random Access}
@@ -258,9 +253,9 @@ These flags can be combined with the bitwise OR operator (|).
 \begin{block}{Convert int to string?}
 \begin{minted}{c++}
 int clsnum=102;
-string cls="The class is CS";
+std::string cls="The class is CS";
 cls+=clsnum;
-cout<<cls<<endl;
+std::cout<<cls<<std::endl;
 \end{minted}
 \end{block}
 
@@ -276,10 +271,10 @@ The class is CS f
 \begin{block}{Convert int to string?}
 \begin{minted}{c++}
 int clsnum=102;
-string cls="The class is CS";
+std::string cls="The class is CS";
 cls+=clsnum;
-cout<<cls<<" "<< clsnum<<endl;
-cout<<cls<<endl;
+std::cout<<cls<<" "<< clsnum<<std::endl;
+std::cout<<cls<<std::endl;
 \end{minted}
 \end{block}
 
@@ -295,11 +290,11 @@ The class is CSf
 \begin{frame}[fragile]{String as File: stringstream}
 \begin{block}{Convert int to string?}
 \begin{minted}{c++}
- int clsnum=102;
-string cls="The class is CS";
+int clsnum=102;
+std::string cls="The class is CS";
 cls+=to_string(clsnum);
-cout<<cls<<" "<<clsnum<<endl;
-cout<<cls<<endl;
+std::cout<<cls<<" "<<clsnum<<std::endl;
+std::cout<<cls<<std::endl;
 \end{minted}
 \end{block}
 
@@ -320,9 +315,9 @@ strstr.cpp:12:25: error: ‘to_string’ was not declared
 //other header info
 int main(){
    int clsnum=102;
-   stringstream cls; //create a stringstream object
+   std::stringstream cls; //create a stringstream object
    cls<<"This class is CS"<<clsnum; //write to it
-   cout<<cls.str()<<endl;
+   std::cout<<cls.str()<<std::endl;
 }
 \end{minted}
 \end{block}
@@ -338,7 +333,7 @@ This class is CS102
 \begin{frame}[fragile]{String Functions}
 \begin{block}{String as Vector}
 \begin{minted}{c++}
-string hi = "Hello";
+std::string hi = "Hello";
 \end{minted}
 \begin{table}
 	\Huge

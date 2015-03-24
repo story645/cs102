@@ -16,10 +16,9 @@ int main(){
 	if (!inFile){
 		cout<<"Error: Can't open "<<filename<<endl;
 	}else{
-		while(inFile){
-			inFile>>name>>age;
-		        names.push_back(name);
-		        ages.push_back(age);
+		while(inFile>>name>>age){
+           names.push_back(name);
+           ages.push_back(age);
 		         //cout<<name<<" is "<<age+10<<endl;
 		}
 	}

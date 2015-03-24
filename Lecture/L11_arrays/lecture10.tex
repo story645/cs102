@@ -104,7 +104,7 @@
 	\pause
 	\begin{block}{Printing out the value at index 3}
 	\begin{minted}{c++}
-		cout<<numbers[3]<<endl;
+		std::cout<<numbers[3]<<std::endl;
 	\end{minted}
 	\end{block}
 	\pause
@@ -116,7 +116,7 @@
 \pause
 	\begin{block}{Input an element to index 2}
 	\begin{minted}{c++}
-		cin>>numbers[2];
+		std::cin>>numbers[2];
 	\end{minted}
 	\end{block}
 \end{frame}
@@ -177,7 +177,7 @@
 	\pause
 	\begin{block}{Printing out the value at row index 0 and column index 3}
 	\begin{minted}{c++}
-		cout<<numbers[0][3]<<endl;
+		std::cout<<numbers[0][3]<<std::endl;
 	\end{minted}
 	\end{block}
 	\pause
@@ -189,7 +189,7 @@
 	\pause
 	\begin{block}{Input an element to row index 0 and column index 2}
 	\begin{minted}{c++}
-		cin>>numbers[0][2];
+		std::cin>>numbers[0][2];
 	\end{minted}
 	\end{block}
 \end{frame}
@@ -354,18 +354,16 @@ int max(int arr[][], const int ROWS, const int COLUMNS){
 #include <iostream>
 #include <vector> //include vector lib
 
-using namespace std;
-
 int main()
 {
    //create a vector containing 10 elements
-   vector <int> numbers(10);
+   std::vector <int> numbers(10);
    //set 1st element to 1
    numbers[0] = 1;
-   cout<<numbers[0]<<endl;
+   std::cout<<numbers[0]<<std::endl;
    //set 2nd element
    numbers[1] = 2;
-   cout<<numbers[1]<<endl;
+   std::cout<<numbers[1]<<std::endl;
 }
 \end{minted}
 \end{frame}
@@ -375,17 +373,15 @@ int main()
 #include <iostream>
 #include <vector> //include vector lib
 
-using namespace std;
-
 int main()
 {
    //create an array of size 10 
    //with all values set to 2
-   vector <int> numbers(10,2);
-   cout<<numbers[1]<<endl;
+   std::vector <int> numbers(10,2);
+   std::cout<<numbers[1]<<std::endl;
    //change the value at index i
    numbers[1] = 4;
-   cout<<numbers[1]<<endl;
+   std::cout<<numbers[1]<<std::endl;
 }
 \end{minted}
 \end{frame}
@@ -394,17 +390,15 @@ int main()
 #include <iostream>
 #include <vector> //include vector lib
 
-using namespace std;
-
 int main()
 {
-   vector <int> numbers;
+   std::vector <int> numbers;
    //use push_back to add 1st value
    numbers.push_back(1);
-   cout<<numbers[0]<<endl;
+   std::cout<<numbers[0]<<std::endl;
    //use push_back to add 2nd value
    numbers.push_back(2);
-   cout<<numbers[1]<<endl;
+   std::cout<<numbers[1]<std::endl;
 }
 \end{minted}
 \end{frame}

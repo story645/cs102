@@ -12,8 +12,7 @@ int main(){
 	if (!inFile){
 		cout<<"Error: Can't open "<<filename<<endl;
 	}else{
-		while(inFile){
-			inFile>>number;
+		while(inFile>>number){
 			cout<<number+28<<endl;
 		}
 	}
