@@ -15,15 +15,16 @@
 \subsection{Display}
 Write a program to display the contents of a file. Your program should:
 \begin{enumerate}
-	\item ask the user for the name of a file and display an error if it doesn't exist.
-	\item display the contents of that file or display an error if it is empty.
+	\item ask the user for the name of a file
+	\item display an error if it can't be open for any reason
+	\item display the contents of the file
 	\item close the file
 \end{enumerate}
 
 \subsection{Create}
 Write a program that saves user input to a file. Your program should:
 \begin{enumerate}
-	\item ask the user for the name of a file and create the file if it doesn't exist
+	\item ask the user for the name of a file
 	\item ask the user for a number
 	\item write that number to the file
 	\item repeat steps 2 and 3 until the user enters -1
@@ -37,19 +38,21 @@ Write a function to copy the contents of a source file to a destination file. Yo
 \end{minted}
 \begin{enumerate}
 	\item open the source file for reading and display an error if it doesn't exist
-	\item open the destination file for writing and display an error it it doesn't exist
-	\item copy the contents from the source file to the destination file and display an error if the source is empty
+	\item open the destination file for writing
+	\item copy the contents from the source file to the destination file
+	\item optional: display an error if the source is empty
 	\item close both files
 \end{enumerate}
 Write a program to test your function. Your program should:
 \begin{enumerate}
-	\item ask the user for the name of the source file and display and error if it doesn't exist
-	\item ask the user for the name of the destination file and create it if it doesn't exist
+	\item ask the user for the name of the source file 
+	\item ask the user for the name of the destination file
+	\item call the copy function
 \end{enumerate}
 
 \section{Data Wrangling}
 \subsection{Save}
-Modify the program in \textbf{Create}. Write function to store numbers in a vector
+Modify the program in \textbf{h}. Write function to store numbers in a vector
 \begin{minted}{c++}
 	void toVector(vector <int> vect);
 \end{minted}
@@ -65,7 +68,7 @@ The function should:
 \end{minted}
 The function should:
 \begin{enumerate}
-	\item check for the savefile and create it if it doesn't exist
+	\item check for the savefile
 	\item write the numbers to the file
 	\item close the file
 \end{enumerate}
@@ -83,8 +86,9 @@ Write a program to read in a list of numbers, compute their sum, and save the su
 \end{minted}
 The function should:
 \begin{enumerate}
-	\item ask the user for the name of the source file and display and error if it doesn't exist
-	\item then read the numbers from the file into the vector
+	\item ask the user for the name of the source file
+	\item display an error if it doesn't exist
+	\item read the numbers from the file into the vector
 	\item close the input file
 \end{enumerate}
 Then write a function to compute and \textbf{return the sum} of the values in the array. Use the following prototype:
@@ -97,15 +101,17 @@ And then write a function to save the sum to a file. Use the following prototype
 \end{minted}
 The function should:
 \begin{enumerate}
-	\item check for the savefile and create it if it doesn't exist
+	\item open the savefile
 	\item write the sum to the file
 	\item close the file
 \end{enumerate}
-And then write the main that uses these functions. 
-Then modify the program so that the sum is appended to the input file.
+And then write the main that uses these functions. Then modify the program so that the sum is appended to the input file.
 
 \section{Text Wrangling}
 \section*{Character handling functions}
+\begin{minted}{c++}
+#include <cctype>
+\end{minted}
 \begin{tabular}{|l|l|}
 \hline
 isalnum & Check if character is alphanumeric (function )\\ 
@@ -144,16 +150,15 @@ toupper & Convert lowercase letter to uppercase (function ) \\
 \begin{minted}{c++}
 int countC(string line, char c);
 \end{minted}
-For example, if it was called in the following way:
+For example, if it was called in the following way, \texttt{countC} should return \textbf{1}:
 \begin{minted}{c++}
 countC("Hello", "o");
 \end{minted}
-countC should return \textbf{1}.
-\item print out the frequency of all the letters in the alphabet in a given string (case sensitive)
-\item  print out the frequency of all the letters in the alphabet in a given string (case insensitive)
-\item print out the frequency of punctuation
-\item modify the program to print out the frequency of all letters in a file
-\item \textbf{Extra Credit}: Write a function which prints out which letter is most frequent and which letter is least frequent (in an arbitrary file);
+\item Print out the frequency of all the letters in the alphabet in a given string (case sensitive)
+\item  Print out the frequency of all the letters in the alphabet in a given string (case insensitive)
+\item Print out the frequency of punctuation
+\item Modify the program to print out the frequency of all letters in a file
+\item Write a function which prints out the most and least frequent letters in an arbitrary file.
 \end{enumerate}
 
 \subsection{Counting Characters}
