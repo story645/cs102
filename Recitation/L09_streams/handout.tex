@@ -59,7 +59,7 @@ Modify the program in \textbf{Create}. Write function to store numbers in a vect
 The function should:
 \begin{enumerate}
 	\item Ask the user how many numbers they want to enter
-	\item Fill the array with user input
+	\item Fill the vector with user input
 \end{enumerate}
 
  And then write another function to save the numbers to a file. Use the following protoypes:
@@ -80,7 +80,7 @@ And write a program to test your functions. Your program should:
 \end{enumerate}
 
 \subsection{Tabulate}
-Write a program to read in a list of numbers, compute their sum, and save the sum out. First, write a function to read a list of numbers into an array:
+Write a program to read in a list of numbers, compute their sum, and save the sum out. First, write a function to read a list of numbers into an vector:
 \begin{minted}{c++}
 	std::vector<int> file2Vector(string filename);
 \end{minted}
@@ -91,7 +91,7 @@ The function should:
 	\item read the numbers from the file into the vector
 	\item close the input file
 \end{enumerate}
-Then write a function to compute and \textbf{return the sum} of the values in the array. Use the following prototype:
+Then write a function to compute and \textbf{return the sum} of the values in the vector. Use the following prototype:
 \begin{lstlisting}
 	double sum(vector <int> vect);
 \end{lstlisting}
