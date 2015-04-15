@@ -12,7 +12,8 @@ int main(){
    }
 }
 
-template <class t>
+template <class T>
   void f(T t){
+    //stops program cold
      throw 101;
   }
