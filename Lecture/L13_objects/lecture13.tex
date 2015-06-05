@@ -54,7 +54,7 @@ void display(Point p){ cout<<p.x<<" "<<p.y<<endl; }
 \end{block}
 \begin{block}{Pointer to Struct as Argument}
 \begin{minted}{c++}
-double distance(Point *p1, Point *p2){
+int distance(Point *p1, Point *p2){
     return sqrt((pow(p1->x,2.0)-pow(p2->x, 2.0))+
                 (pow(p1->y,2.0) - pow(p2->y, 2.0)));
 }
@@ -73,20 +73,20 @@ distance(&p, &p2);
 \begin{minted}{c++}
 class Point{
     public:
-        double x;
-        double y;
+        int x;
+        int y;
         std::string color;
-        Point(double x0, double y0, std::string c0);
+        Point(int nx, int ny, std::string c);
 }
 \end{minted}
 \end{block}
 \pause
 \begin{block}{Constructor: Create the Point}
 \begin{minted}{c++}
-Point::Point(double x0, double y0, std::string c0){
-    x = x0;
-    y = y0;
-    color = c0;
+Point::Point(int nx, int ny, std::string c){
+    x = nx;
+    y = ny;
+    color = c;
 }
 \end{minted}
 \end{block}
@@ -113,11 +113,11 @@ int main(){
 	\includegraphics[width=1\textwidth]{traj001}
 \end{frame}
 
-\begin{frame}[fragile]{Update a Point's Location}
+\begin{frame}[fragile]{Move a Point}
 \begin{minted}{c++}
-void Point::updatePos(double nx, double ny){
-    x = newx;
-    y = newy;
+void Point::move(int nx, int ny){
+    x+=nx;
+    y+=ny;
 }
 \end{minted}
 \end{frame}
@@ -126,12 +126,12 @@ void Point::updatePos(double nx, double ny){
 \begin{minted}{c++}
 class Point{
     public:
-        double x;
-        double y;
+        int x;
+        int y;
         std::string color;
-        Point(double x0, double y0, std::string c0);
-        void updatePos(double nx, double ny);
-}
+        Point(int nx, int nx, std::string c);
+        void move(int nx, int ny);
+};
 \end{minted}
 \end{frame}
 
@@ -142,41 +142,15 @@ int main(){
     //create point
     string color = "yellow";
     Point p1(0,0, color);
+    p1.move(1,1);
     cout<<p1.x<<" "<<p1.y<<endl;
-    p1.updatePos(exp(.01*t)*cos(t),exp(0.1*t)*sin(t));
+    p1.move(-2, 0);
     cout<<p1.x<<" "<<p1.y<<endl;
     return 0;
 }
 \end{minted}
 \end{frame}
 
-\begin{frame}{P1 Moves A Lot}
-	\begin{center}
-	 	\animategraphics[height=3in,autoplay,controls]{12}{animate/traj}{000}{198}
-	\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Move Point P1}
-\begin{minted}{c++}
-int main(){
-    //create point
-    string color = "yellow";
-    Point p1(0,0, color);
-    cout<<p1.x<<" "<<p1.y<<endl;
-    for(int t=1; t<200; t++){
-        p1.updatePos(exp(.01*t)*cos(t),exp(0.1*t)*sin(t));
-            cout<<p1.x<<" "<<p1.y<<endl;
-    }
-    return 0;
-}
-\end{minted}
-\end{frame}
-
-\begin{frame}{P2 Joins P1}
-	\begin{center}
-	 	\animategraphics[height=3in,autoplay,controls]{12}{animate2/traj}{000}{198}
-	\end{center}
-\end{frame}
 
 \begin{frame}[fragile]{Working with Multiple Instances: P1, P2}
 \begin{minted}{c++}
@@ -205,13 +179,13 @@ bool Point::equal(Point P){
 \begin{minted}{c++}
 class Point{
     public:
-        double x;
-        double y;
+        int x;
+        int y;
         std::string color;
-        Point(double x0, double y0, std::string c0);
-        void updatePos(double nx, double ny);
+        Point(int x0, int y0, std::string c0);
+        void move(int nx, int ny);
         bool equal(Point P);
-}
+};
 \end{minted}
 \end{frame}
 

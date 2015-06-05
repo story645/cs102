@@ -16,43 +16,42 @@
 
 \title{ CS102: Encapsulation and Overloading}
 \author{Hannah Aizenman}
-\date{haizenm00@ccny.cuny.edu}
-
 
 \begin{frame}
 	\titlepage
 \end{frame}
 
 
-\begin{frame}[fragile]{Account Object}
-\begin{block}{Declaration}
+\begin{frame}[fragile]{"point.h"}
 \begin{minted}{c++}
-class Account{
+class Point{
     public:
-        std::string accountNumber;
-        double balance;
+        int BOUND;
+        int x;
+        int y;
+        Point(int nx, int ny, int B);
 };
-\end{minted}
-\end{block}
-\pause
-\begin{block}{Constructor}
-\begin{minted}{c++}
-Account::Account(std::string aN, double b){
-    accountNumber = aN;
-    balance = b;
+Point::Point(int nx, int ny, int B){
+    if (BOUND<=0){throw -2};
+    if ((abs(x)<BOUND) || (abs(y)<BOUND)){throw -1};
+    x = nx;
+    y = ny;
 }
 \end{minted}
-\end{block}
 \end{frame}
 
-
-\begin{frame}[fragile]{Using Account Object}
+\begin{frame}[fragile]{Using Point Object}
 \begin{minted}{c++}
+#include <iostream>
+#include "point.h"
+
+using namespace std;
 int main(){
-    Account a1("1234", 100);
-    a1.accountNumber = "4567";
-    a1.balance -= 200;
-    return 0;
+    Point p1(5, -5, 10);
+    p1.x = 20;
+    p1.y=-20;
+    p1.BOUND = -1;
+return 0;
 }
 \end{minted}
 \pause
@@ -62,113 +61,148 @@ No checks to changing information!
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Encapsulated Account Object}
-\begin{block}{Declaration}
+\begin{frame}[fragile]{Encapsulated Point Object}
 \begin{minted}{c++}
-class Account{
+class Point{
     private:
-        std::string accountNumber;
-        double balance;
-    public: 
-        ....
-        double changeBalance(double value);
-        double getBalance();
+        int BOUND;
+        int x;
+        int y;
+    public:
+        Point(int nx, int ny, int B);
+};
+
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Accessing X and Y?}
+\begin{minted}{c++}
+class Point{
+    private:
+        int BOUND;
+        int x;
+        int y;
+    public:
+        Point(int nx, int ny, int B);
+        int get_x();
+        int get_y();
+        void set_x(int nx);
+        void set_y(int ny);
 };
 \end{minted}
-\end{block}
-\pause
-\begin{block}{Constructor}
+\end{frame}
+
+\begin{frame}[fragile]{Getters and Setters}
+\begin{block}{Getters}
 \begin{minted}{c++}
-Account::Account(std::string aN, double b){
-    accountNumber = aN;
-    balance = b;
+int Point::get_x(){return x};
+int Point::get_y(){return y};
+\end{minted}
+\end{block}
+
+\begin{block}{Setters}
+\begin{minted}{c++}
+void Point::set_x(int nx){
+        if (abs(nx)>BOUND){throw -3};
+        x = nx;
+}
+void Point::set_y(int ny){
+        if(abs(ny)>BOUND){throw -4};
+        y=ny;
 }
 \end{minted}
 \end{block}
+
 \end{frame}
 
-\begin{frame}[fragile]{Balance Method}
+\begin{frame}[fragile]{Use operators directly?}
 \begin{minted}{c++}
-double Account::changeBalance(double value){
-     if ((value<0) && (balance<std::abs(value))){
-         throw value;
-    }
-    balance += value;
-    return balance;
-}     
+int main(){
+    Point P1(0,0);
+    Point P2(2,4);
+    #instead of P1.equal(P2)
+    std::cout<<(P1==P2)<<std::endl;
+}
 \end{minted}
 \end{frame}
 
-\begin{frame}[fragile]{Use operators directly}
+
+\begin{frame}[fragile]{Overloaded Operator Declaration}
+\begin{minted}{c++}
+class Point{
+    private:
+        int x;
+        int y;
+    public:
+       Point(int nx, int ny, int B);
+       //...
+    bool operator==(Point P);
+    double operator-(Point P); 
+};
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Overloaded Operator Implementation}
+\begin{minted}{c++}
+bool Point::operator(Point P){
+    return ((x==P.x)&& (y==P.y));
+}
+
+double Point::operator(Point P){
+    return sqrt(pow(x-P.x, 2)+pow(y-P.y,2));
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{Passing Objects to a Different Object's Methods?}
 \begin{minted}{c++}
 int main(){
-    Account test2(name, account, 200);
-    cout<<"Test overload"<<endl;
-    cout<<"old balance: "<<test2.getBalance()<<endl;
-    test2 -= 100;
-    cout<<"new balance: "<<test2.getBalance()<<endl;
+    Point P;
+    cin>>P;
+    cout<<P;
     return 0;
 }
 \end{minted}
 \end{frame}
 
-\begin{frame}[fragile]{Operator Overloading}
-\begin{block}{Declaration}
-\begin{minted}{c++}
-class Account{
-    private:
-        std::string accountNumber;
-        double balance;
-    public:
-        double changeBalance(double value);
-        double operator-=(double value);
-};
-\end{minted}
-\end{block}
-\pause
-\begin{block}{Overloaded Operator Method}
-\begin{minted}{c++}
-double Account::operator-=(double value){
-     changeBalance(-1*value);
-     return balance;
-}
-\end{minted}
-\end{block}
-\end{frame}
 
-\begin{frame}[fragile]{Friend Functions}
+
+\begin{frame}[fragile]{Friend Function Declaration}
 \begin{minted}{c++}
-int main(){
-    string name1 = "1234";
-    string name2 = "4212";
-    Account test1(name1, 100);
-    Account test2(name2, 200);
-    cout<<test1==test2<<endl;
-    return 0;
-}
+#include <ostream>
+#include <istream>
+ 
+class Point{
+ private:
+    int x;
+    int y;
+ public:
+   Point();
+   //...
+   //works for all streams: iostream, sstream, fstream 
+   friend std::istream& 
+      operator>>(std::istream &input, Point &P);
+   friend std::ostream& 
+      operator<<(std::ostream &output Point &P);
+};
+
 \end{minted}
 \end{frame}
 
-\begin{frame}[fragile]{Friend Function}
-\begin{block}{Declaration}
+\begin{frame}[fragile]{Overloaded Friend Operator}
 \begin{minted}{c++}
-class Account{
-    private:
-        std::string accountNumber;
-        double balance;
-    public:
-        friend bool operator==(Account a1, Account a2);
-};
+Point::Point(){};
+//...
+std::istream& operator>>(std::istream &input, Point &P){
+    input >> P.x>> P.y;
+    return input;
+}
+
+std::ostream& operator<<(std::ostream &output, Point &P){
+    output << P.x << " "<< P.y;
+    return output;
+}
 \end{minted}
-\end{block}
-\pause
-\begin{block}{Overloaded Operator Friend}
-\begin{minted}{c++}
-bool operator==(Account a1, Account a2){
-	return ((a1.accountNumber==a2.accountNumber) && 
-                       (a1.balance == a2.balance));
-\end{minted}
-\end{block}
 \end{frame}
 
 \begin{frame}{Method vs. Friend Function}
@@ -189,15 +223,20 @@ bool operator==(Account a1, Account a2){
 	\end{description}
 \end{frame}
 
-\begin{frame}[fragile]{Arrays of Objects}
+\begin{frame}[fragile]{Arrays/Vectors of Objects}
 \begin{minted}{c++}
 int main(){
-    string name1 = "1234";
-    string name2 = "4212";
-    Account test1(name1, 100);
-    Account test2(name2, 200);
-    Account accountList[2] = {test1, test2};
-    return 0;
+   Point P1(0,0);
+   Point P2(-2, -3);
+   Point PointArray[3] = {P1, P2};
+
+   std::vector <Point> PointVector;
+   for(int i=0; i<10; i++){
+      Point Pin;
+      std::cin>>Pin;
+      PointVector.push_back(Pin);
+   }
+   return 0;
 }
 \end{minted}
 \end{frame}
