@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{CS102: Week ?}
+\maketitle 
+
+\section*{Exception handling}
+Write a function to solve for the roots of a quadratic equation. Your function should return the first positive root and throw exceptions when 
+\begin{enumerate}
+	\item division by 0 would happen
+	\item when the roots are imaginary
+\end{enumerate}
+ Use the provided prototype:
+\begin{lstlisting}
+	double quadratic(int a, int b, int c);
+\end{lstlisting}
+Write a main program that tests this function. 
+
+\section*{Pointer Operations}
+Write a program that declares three one-dimensional arrays named miles, gallons, and mpg. Each array should be capable of holding 10 elements.
+\begin{description}
+\item[miles] 240.5, 300.0, 189.6, 310.6, 280.7, 216.9, 199.4, 160.3, 177.4, 192.3. 
+\item[gallons] 10.3, 15.6, 8.7, 14, 16.3, 15.7, 14.9, 10.7, 8.3,  8.4. 
+\item[mpg] mpg[i] = miles[i] / gallons[i]
+\end{description}
+Use pointers when calculating and displaying the elements of the mpg array.
+
+\section*{Structs}
+Write a C++ program that accepts a user-entered date. Have the program calculate and display the date of the next day. For the purposes of this exercise, assume all months consist of 30 days. Then modify the program written in Exercise 6a to account for the actual number of days in each month.
+
+
+
+
+\end{document}
