@@ -82,3 +82,19 @@ Other Information
 
 Schedule
 ========
+| Week | Topics | Chapters 
+|------|--------|----------|
+| 1 | History of CS, Programming Environment and Compilers 			 | 1 |
+| 2 | Problem Solving Using C++ (Data Types, Variables, Declaration) | 2 |
+| 3 | Pointers, Strings												 | 9, 12 |
+| 4 | Assignment, Formatting, and Interactive Input					 | 3 |
+| 5 | Selection Statements, Exceptions								 | 4, 9 |
+| 6 | Repetition Statements											 | 5 |
+| 7 | Midterm 														 | 1-4. 5, 9, 12 |
+| 8 | Modularity Using Functions									 | 6 |
+| 9 | Arrays and Vectors											 | 7 |
+| 10 | Midterm										 | 1-7, 9 |
+| 11 | I/O Streams and Data Files									 | 8 |
+| 12 | Structs, Introduction to Classes							     | 13, 10 |
+| 13 | Class Functions and Conversions                               | 11 |
+| 14 | Recursion													 | Not in Book |
