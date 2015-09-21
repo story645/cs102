@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\begin{document}
+
+\title{CS102: Week 11\\Objects}
+
+\maketitle
+\section*{Introduction}
+Through out the semester we've been talking about the how C++ works as a language. We've used some of the built in data types and functions to get an understanding of how to write some code. Now we're going to take what we've learned and try to finish the semester with a simple text-based role-playing game(RPG). To accomplish this task, we're going to have to use objects. 
+
+\subsection*{Objects that we'll make}
+In this game, we're going to make the following objects:
+\begin{description}
+\item[Player] This is the player that you can control 
+\item[Monster] This is a monster that you can fight against
+\item[Item] This is an item that will modify your player's stats
+\item[Map] This is an object that will facilitate the whole game. 
+\end{description}
+
+You will be given the header files needed to start this project. To make this more structured, this recitation will build the game step by step.
+
+\section{Player Interaction}
+What makes video games so much fun is that we can interact with game. It gives us a degree of freedom that isn't offered by books or television. 
+\subsection{Accepting User Commands}
+Using techniques we learned through out the semester, we're going to implement our main function such that it will accept the following commands:
+\begin{enumerate}
+\item play
+\item create $\{map\|player\|monster\}$
+\item load $\{map\|player\|monster\}$
+\item print $\{map\|stats\|help\}$
+\item help
+\item quit
+\end{enumerate}
+\pagebreak
+\subsection{Print}
+When a player types in the print command, based on what the next parameter is, you should print something different. For now just write a function that acknowledges what the player wants to print out. We will implement each of the functions as we get to them.\\
+Example:
+\begin{lstlisting}
+Enter a command: print map
+Print the map
+
+Enter a command: print stats
+Print the player stats
+\end{lstlisting}
+
+\subsection{Help}
+To be able to share a game, we want the instructions on how to play it to be unambiguous. If somebody enters "Help", they should see something like the following:
+
+\begin{lstlisting}
+Enter a Command: help
+
+My Game
+-------
+print {map | stats | help} -- Prints the values for the statement
+
+help -- Prints out this prompt
+
+quit -- Exits the game
+\end{lstlisting}
+
+\subsection{Quit}
+When a player enters quit, you should quit the program.\\
+Example: 
+\begin{lstlisting}
+Enter a Command: quit
+Thanks for playing! Good Bye.
+\end{lstlisting}
+
+\section{Character}
+First we will create the character. We'll be upgrading him as we move along with this game, but at it's very simplest, the player should have the following:
+\begin{description}
+\item[Name]
+\item[Position] location on the map
+\item[Health Points (HP)] 50 to 100
+\item[Mana Points (MP)] 50 to 100
+\item[Movement] 5 to 10
+\item[Speed] 1 to 25
+\item[Attack] 15 to 35
+\item[Defense] 5 to 20
+\end{description}
+When the object is created, initialize the numerical attributes with random values in the ranges listed above. 
+
+The player object has the following methods:
+\begin{description}
+    \item[Player(string n)] constructor
+	\item[void stats()] print player stats
+	\item[void move(Point pt)] move player to pt
+\end{description}
+The player cannot move off the map. 
+
+\section{Monster}
+Then lets create a monster. We'll also be upgrading him as we move along with this game, but at it's very simplest, he should have the following:
+
+\begin{description}
+\item[Name]
+\item[Position] location on the map
+\item[Health Points (HP)] 50 to 100
+\item[Mana Points (MP)] 50 to 100
+\item[Speed] 1 to 25
+\item[Attack] 15 to 35
+\item[Defense] 5 to 20
+\end{description}
+When the object is created, initialize the numerical attributes with random values in the ranges listed above. 
+
+The player object has the following methods:
+\begin{description}
+    \item[Monster(string n)] constructor
+	\item[void stats()] print player stats
+	\item[void move()] move monster randomly
+\end{description}
+The monster cannot move off the map and can only move at most 3 spaces in any direction from its current location. 
+
+
+\section{Map}
+The monster and the player fight on a map. The map can be of any size between 50 and 1000, but must be square. The map has the following attributes and methods:
+\begin{description}
+    \item[size] size of one dimension of the map
+    \item[Map(int s)] create map of size s
+    \item[bool fight(Player, Monster)] fight between monster and player, True if player won
+    \item[bool gameover(Player)] True if player is dead
+\end{description}
+Player and monsters stats should also be deducted over the course of the fight. 
+
+\section{Note}
+Document is subject to change over the course of the project
+
+\section{Grading}
+Points subject to change:
+\subseection{Required}
+\begin{description}
+    \item[40 points] main.cpp
+    \item[20 points] player.h
+    \item[20 points] monster.h
+    \item[20 points] map.h
+\end{description}
+\subsection{Extra Credit}
+\begin{description}
+    \item[20 points] Save/Load player, monster, and map
+    \item[20 Points] items.h - potions, weapons, etc. (5 points each type)
+    \item[20 Points] Additional player, monster, map using inheritance (5 points each)
+    \item[20 Points] Creative addition, such as leveling up, learning through game, etc. 
+\end{description}
+
+\end{document}
