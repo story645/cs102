@@ -12,6 +12,30 @@ Grading
 | 30 | Midterm (15% each) |
 | 30 | Final |
 
+**Recitation Grading**
+Each recitation activity has multiple individual problems, each of which is graded invididually using the following rubric:
+| Score | Competency | Criteria |
+|-------| -----------|---------|
+| 5 | Perfect | 0 mistakes |
+| 4 | Mostly Correct | 1 minor mistake |
+| 3 |	Somewhat Correct | 1 major mistake |
+| 2 |	Somewhat Incorrect | 2 major or 2 minor mistakes | 
+| 1 |	Mostly Incorrect | Understood the material |
+| 0 |	No Credit | 	 
+
+Total recitation grade = sum(individual problem grades) / 200
+
+You may choose which problems to complete to obtain the 200 points, but the following criteria must be met:
+
+  * You must attempt at least one activity from each recitation problem set. 
+  * Failure to do so is a 25pt deduction per missing recitation.
+  * You are allowed 2 absences. 
+  * Being late, which is coming in more than 10 minutes after the class starts, 3 times equals 1 abscence. 
+  * Leaving early 3 times also equals one 1 abscence. 
+  * Any more than 2 abscences is a 25pt deduction per abscence.
+
+If you obtain more than 200 points, the extra points will go towards extra credit provided that you've obtained a 4 or 5 on all submitted work, have submitted at least one problem from each recitaton, and have not been absent more than twice.
+
 **Extra Credit**
 All the lectures and recitation activities and most of the in class coding samples are at https://github.com/story645/cs102 You can earn extra credit by filing an accepted bug report or by fixing and error and filing an accepted pull request.
 
@@ -62,3 +86,5 @@ Other Information
 * Other: Sticky Notes/Post-its
 
 Schedule
+---------
+
