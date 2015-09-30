@@ -37,7 +37,7 @@ All the lectures and recitation activities and most of the in class coding sampl
 Policies
 ========
 ###Email###
-Email should only be used to set up an in person meeting or inform me about needed accomodations unless I tell you otherwise. Any other emails may not receive a response. All coursework related communications should be done through piazza, which allows anonymous posting. If you are uncomfortable with this policy, come to speak to me.
+Email should only be used to set up an in person meeting or inform me about needed accommodations unless I tell you otherwise. Any other emails may not receive a response. All coursework related communications should be done through piazza, which allows anonymous posting. If you are uncomfortable with this policy, come to speak to me.
 
 ###Piazza###
 We will be using Piazza for class discussion. The system is highly catered to getting you help fast and efficiently from classmates and myself. Rather than emailing questions to me, post your questions on Piazza. If you have any problems or feedback for the developers, email team@piazza.com.
@@ -58,7 +58,7 @@ Piazza Grade = [(.05*(days online+views)) + (.15*contributions)+(.15*questions) 
 * Provide documentation for any unexpected absence.
 
 ###Accessibility###
-* Have the accessibility center provide documentation for any accomodations ASAP
+* Have the accessibility center provide documentation for any accommodations ASAP
 * Notify me that they've left documentation in my mailbox/etc.
 
 ###Plagiarism###
