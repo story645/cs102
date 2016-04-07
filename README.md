@@ -32,7 +32,7 @@ You may choose which problems to complete to obtain the 200 points, but the foll
 If you obtain more than 200 points, the extra points will go towards extra credit provided that you've obtained a 4 or 5 on all submitted work, have submitted at least one problem from each recitaton, and have not been absent more than twice.
 
 ###Extra Credit###
-All the lectures and recitation activities and most of the in class coding samples are at https://github.com/story645/cs102 You can earn extra credit by filing an accepted bug report or by fixing and error and filing an accepted pull request.
+All the lectures and recitation activities and most of the in class coding samples are at https://github.com/story645/cs102 You can earn extra credit by filing an accepted bug report or by fixing an error and filing an accepted pull request.
 
 Policies
 ========
