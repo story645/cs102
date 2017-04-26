@@ -26,9 +26,9 @@ You may choose which problems to complete to obtain the 200 points, but the foll
   * You must attempt at least one activity from each recitation problem set. 
   * Failure to do so is a 25pt deduction per missing recitation.
   * You are allowed 2 absences. 
-  * Being late (coming in more than 10 minutes after the class starts) 3 times equals 1 abscence. 
-  * Leaving early 3 times also equals one 1 abscence. 
-  * Any more than 2 abscences is a 25pt deduction per abscence.
+  * Being late (coming in more than 10 minutes after the class starts) 3 times equals 1 absences. 
+  * Leaving early 3 times also equals one 1 absence. 
+  * Any more than 2 absences is a 25pt deduction per absence.
 If you obtain more than 200 points, the extra points will go towards extra credit provided that you've obtained a 4 or 5 on all submitted work, have submitted at least one problem from each recitaton, and have not been absent more than twice.
 
 ### Extra Credit ###
