@@ -42,7 +42,7 @@ Email should only be used to set up an in person meeting or inform me about need
 ### Piazza ###
 We will be using Piazza for class discussion. The system is highly catered to getting you help fast and efficiently from classmates and myself. Rather than emailing questions to me, post your questions on Piazza. If you have any problems or feedback for the developers, email team@piazza.com.
 
-Find our class page at: https://piazza.com/ccny.cuny/spring2015/csc10200/home 
+Find our class page at: 
 
 Piazza Grade = [(.05*(days online+views)) + (.15*contributions)+(.15*questions) + (.30*notes) + (.35*answers)]
 
