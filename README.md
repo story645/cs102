@@ -65,8 +65,8 @@ Piazza Grade = [(.05*(days online+views)) + (.15*contributions)+(.15*questions) 
 * First plagerized assignment - 0 for the assignment
 * Second plagerized assignment - 0 for all assignments
 * Third plagerized assignment - 0 for the course
-* Cheating on the midterms - automatic F on the course
-* Cheating on the final - automatic F for the course
+* Cheating on the midterms - automatic F in the course
+* Cheating on the final - automatic F in the course
 
 In the case of multiple similar homework submissions, plagerism on assignments is determined based on timestamps-the person who submitted first is assumed to be the originator and anyone else is assumed to have plagerized. All students who submit similar exam answers are assumed to be cheating.
 
