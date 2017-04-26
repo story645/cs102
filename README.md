@@ -9,7 +9,7 @@ Grading
 | 30% | Final |
 
 ### Recitation Grading ###
-Each recitation activity has multiple individual problems, each of which is graded invididually using the following rubric:
+Each recitation activity has multiple individual problems, each of which is graded using the following rubric:
 
 | Score | Competency | Criteria |
 |-------| -----------|---------|
